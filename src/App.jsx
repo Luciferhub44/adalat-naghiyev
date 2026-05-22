@@ -598,7 +598,7 @@ export default function App() {
             className="aspect-[4/5] relative overflow-hidden"
           >
             <img 
-              src="https://picsum.photos/seed/adalat-bio/1000/1250" 
+              src="/Adalat.jpg" 
               alt="Adalat Naghiyev" 
               className="w-full h-full object-cover grayscale brightness-90 transition-transform duration-1000 hover:scale-105"
             />
