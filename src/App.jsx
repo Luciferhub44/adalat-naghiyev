@@ -78,10 +78,10 @@ const TESTIMONIALS = [
 ];
 
 const STATS = [
-  { label: 'Years Experience', value: '5+' },
-  { label: 'Location Base', value: 'Poznań & Berlin' },
-  { label: 'Mediums', value: 'Digital & Analog' },
-  { label: 'Exhibition', value: 'Urban Mosaic \'26' }
+  { label: 'Years Experience', value: '8+' },
+  { label: 'Location Base', value: 'Poznań & Europe' },
+  { label: 'Formats', value: 'Digital & Analog' },
+  { label: 'Upcoming Exhibitions', value: 'Urban Mosaic \'26' }
 ];
 
 // --- COMPONENTS ---
@@ -624,7 +624,7 @@ export default function App() {
                 Whether documenting a raw, personal connection or building a brand's complete visual identity, my focus remains the same: taking your internal concept and engineering it into an undeniable visual reality.
               </p>
               <p className="text-xs italic text-luxury-cream/40">
-                I work across Poznań and Berlin, moving between digital and analog film — chosen for what each medium demands of the subject.
+                I work across Poznań and Poland, moving between digital and analog film — chosen for what each medium demands of the subject.
               </p>
             </div>
 
@@ -761,7 +761,7 @@ export default function App() {
               <p className="text-luxury-gold uppercase tracking-[0.3em] text-[10px] mb-6">Inquiry</p>
               <h2 className="font-serif text-6xl md:text-8xl leading-tight mb-12">Let&apos;s Build <br />Something <br />Unique.</h2>
               <p className="text-luxury-cream/40 max-w-sm mb-12 text-sm leading-relaxed">
-                Based in Poznań. Available in Berlin and beyond. Let's build a unique visual universe for your brand or concept.
+                Based in Poznań. Available across Europe. Let's build a unique visual universe for your brand or concept.
               </p>
               
               <div className="space-y-10">
@@ -771,7 +771,7 @@ export default function App() {
                   </div>
                   <div>
                     <p className="text-[8px] uppercase tracking-widest text-luxury-cream/40 mb-1">Email Inquiry</p>
-                    <p className="text-xl hover:text-luxury-gold transition-colors duration-300">hello@adalatnaghiyev.com</p>
+                    <p className="text-xl hover:text-luxury-gold transition-colors duration-300">info@adalatnaghiyev.com</p>
                   </div>
                 </div>
 
@@ -781,7 +781,7 @@ export default function App() {
                   </div>
                   <div>
                     <p className="text-[8px] uppercase tracking-widest text-luxury-cream/40 mb-1">Social Feed</p>
-                    <p className="text-xl hover:text-luxury-gold transition-colors duration-300">@adalat.naghiyev</p>
+                    <p className="text-xl hover:text-luxury-gold transition-colors duration-300">@adalatnaghiyev.art</p>
                   </div>
                 </div>
               </div>
