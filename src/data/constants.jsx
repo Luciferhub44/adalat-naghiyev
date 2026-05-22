@@ -4,12 +4,12 @@ import { Users, Camera, Briefcase } from 'lucide-react';
 export const PORTFOLIO_ITEMS = [
   { id: 1, category: 'Editorial', title: 'Julia Stachura', image: '/Featured works/Editorial/1.jpg', size: 'large', desc: 'Deep studio tones and deliberate stillness. A collaboration built around character, not performance.' },
   { id: 2, category: 'Film', title: 'Fine Art on Film', seed: 'film-1', size: 'small', desc: "Shot on analog. The grain is not an accident — it's the point. Slow, considered, irreversible." },
-  { id: 3, category: 'Fashion & Runway', title: 'PhilDBrand Show', seed: 'fashion-1', size: 'medium', desc: 'Three floors. Rooftop golden hour. A collection that rewrote the archive and refused to explain itself.' },
+  { id: 3, category: 'Fashion & Runway', title: 'PhilDBrand Show', image: '/Featured works/Renaissance/1.jpg', size: 'medium', desc: 'Three floors. Rooftop golden hour. A collection that rewrote the archive and refused to explain itself.' },
   { id: 4, category: 'Brand', title: 'Wyrobnia Brand', seed: 'craft-1', size: 'small', desc: "Close-up, tactile, honest. Making visible the craft behind an independent maker's identity." },
   { id: 5, category: 'Brand', title: 'Afro Sasa Brass', seed: 'jewelry-1', size: 'medium', desc: 'Jewellery as language. An object-led visual world built from texture, skin, and cultural weight.' },
   { id: 6, category: 'Editorial', title: 'Character Study', image: '/Featured works/Editorial/2.jpg', size: 'large', desc: 'Translating identity into imagery through deep studio work.' },
   { id: 7, category: 'Film', title: 'Berlin Archive', seed: 'street-film', size: 'small', desc: 'Observations of light and movement captured on 35mm.' },
-  { id: 8, category: 'Fashion & Runway', title: 'Rooftop Series', seed: 'fashion-2', size: 'medium', desc: 'Capturing the movement and energy of high fashion.' },
+  { id: 8, category: 'Fashion & Runway', title: 'Rooftop Series', image: '/Featured works/Renaissance/2.jpg', size: 'medium', desc: 'Capturing the movement and energy of high fashion.' },
   { id: 9, category: 'Brand', title: 'Tactile Goods', seed: 'brand-1', size: 'small', desc: 'Visual identity for makers and independent brands.' },
   { id: 10, category: 'Editorial', title: 'MOMA Collab', image: '/Featured works/Editorial/4.jpg', size: 'large', desc: 'Museum-grade whitespace and deliberate composition.' },
   { id: 11, category: 'Film', title: 'Analog Soul', seed: 'film-2', size: 'medium', desc: 'The irreversible beauty of analog photography.' },
@@ -19,6 +19,11 @@ export const PORTFOLIO_ITEMS = [
   { id: 15, category: 'Editorial', title: 'Motion Study', image: '/Featured works/Editorial/6.jpg', size: 'large', desc: 'Capturing movement and fluidity in a static frame.' },
   { id: 16, category: 'Editorial', title: 'Texture & Light', image: '/Featured works/Editorial/7.jpg', size: 'medium', desc: 'Close-ups emphasizing material and lighting.' },
   { id: 17, category: 'Editorial', title: 'The Subject', image: '/Featured works/Editorial/8.jpg', size: 'large', desc: 'Intimate portraiture focused on the gaze.' },
+  { id: 18, category: 'Fashion & Runway', title: 'Backstage Details', image: '/Featured works/Renaissance/3.jpg', size: 'large', desc: 'The quiet moments before the rush of the runway.' },
+  { id: 19, category: 'Fashion & Runway', title: 'Renaissance Line', image: '/Featured works/Renaissance/4.jpg', size: 'medium', desc: 'Fluid fabrics and structural silhouettes.' },
+  { id: 20, category: 'Fashion & Runway', title: 'The Walk', image: '/Featured works/Renaissance/5.jpg', size: 'large', desc: 'A study in pacing and presentation.' },
+  { id: 21, category: 'Fashion & Runway', title: 'Designer Portrait', image: '/Featured works/Renaissance/6.jpg', size: 'small', desc: 'The creative mind behind the collection.' },
+  { id: 22, category: 'Fashion & Runway', title: 'Final Look', image: '/Featured works/Renaissance/7.jpg', size: 'medium', desc: 'The culmination of the runway show.' },
 ];
 
 export const CATEGORIES = ['All', 'Editorial', 'Fashion & Runway', 'Brand', 'Film'];
