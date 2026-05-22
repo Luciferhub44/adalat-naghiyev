@@ -78,7 +78,7 @@ const Portfolio = ({ setSelectedItem }) => {
                       <motion.img 
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.8 }}
-                        src={`https://picsum.photos/seed/${folder.coverItem.seed}/800/600`} 
+                        src={folder.coverItem.image || `https://picsum.photos/seed/${folder.coverItem.seed}/800/600`} 
                         alt={folder.name}
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-80 group-hover:opacity-100"
                       />
@@ -123,18 +123,13 @@ const Portfolio = ({ setSelectedItem }) => {
                     onClick={() => setSelectedItem(item)}
                   >
                     <img 
-                      src={`https://picsum.photos/seed/${item.seed}/${item.size === 'large' ? '600/900' : '600/600'}`} 
+                      src={item.image || `https://picsum.photos/seed/${item.seed}/${item.size === 'large' ? '600/900' : '600/600'}`} 
                       alt={item.title}
-                      className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700 opacity-90 group-hover:opacity-100"
+                      className="w-full h-auto transition-all duration-700 opacity-90 group-hover:opacity-100"
                     />
                     
                     {/* Tape/Pin effect overlay to mimic a physical moodboard */}
                     <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-4 bg-white/10 backdrop-blur-md -rotate-2 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm" />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                      <p className="text-luxury-gold uppercase tracking-[0.2em] text-[8px] mb-2">{item.category}</p>
-                      <h3 className="font-serif text-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.title}</h3>
-                    </div>
                   </motion.div>
                 );
               })}

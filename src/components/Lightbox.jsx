@@ -45,7 +45,7 @@ const Lightbox = ({ item, onClose, onPrev, onNext }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <img 
-          src={`/Hero.JPG`} 
+          src={item.image || `https://picsum.photos/seed/${item.seed}/1200/1200`} 
           alt={item.title}
           className="object-contain max-h-[80vh] shadow-2xl border border-white/5"
         />
