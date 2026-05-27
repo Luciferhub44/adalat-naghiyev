@@ -10,7 +10,7 @@ const ParticipantCard = ({ person, index }) => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-16 items-center`}
+      className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-16 items-center`}
     >
       <div className="w-full md:w-1/2 aspect-[3/4] overflow-hidden grayscale contrast-125 relative group">
         <img 
@@ -23,20 +23,19 @@ const ParticipantCard = ({ person, index }) => {
           href={person.social} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="absolute bottom-6 right-6 w-12 h-12 bg-luxury-cream text-luxury-black flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-luxury-gold"
+          className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-10 h-10 md:w-12 md:h-12 bg-luxury-cream text-luxury-black flex items-center justify-center opacity-100 md:opacity-0 translate-y-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500 hover:bg-luxury-gold"
         >
-          <Instagram className="w-5 h-5" />
+          <Instagram className="w-4 h-4 md:w-5 md:h-5" />
         </a>
       </div>
-      <div className="w-full md:w-1/2 space-y-6">
+      <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
         <div className="space-y-2">
-          <p className="text-luxury-gold uppercase tracking-[0.4em] text-[10px]">Oral History • QR Enabled</p>
-          <h3 className="font-serif text-5xl">{person.name}</h3>
-          <p className="text-luxury-gold/60 uppercase tracking-widest text-xs">{person.role}</p>
+          <h3 className="font-serif text-4xl md:text-5xl">{person.name}</h3>
+          <p className="text-luxury-gold/60 uppercase tracking-widest text-[10px] md:text-xs">{person.role}</p>
         </div>
         
         <div className="relative">
-          <div className={`text-luxury-cream/50 leading-relaxed italic transition-all duration-500 ${!isExpanded ? 'line-clamp-4' : ''}`}>
+          <div className={`text-luxury-cream/50 leading-relaxed italic transition-all duration-500 text-sm md:text-base ${!isExpanded ? 'line-clamp-4' : ''}`}>
             {person.bio.split('\n\n').map((para, i) => (
               <p key={i} className={i > 0 ? 'mt-4' : ''}>{para}</p>
             ))}
@@ -44,12 +43,12 @@ const ParticipantCard = ({ person, index }) => {
           
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-6 flex items-center gap-4 group/btn"
+            className="mt-4 md:mt-6 flex items-center gap-4 group/btn"
           >
-            <div className="w-10 h-10 border border-luxury-gold/30 flex items-center justify-center group-hover/btn:border-luxury-gold transition-colors">
-               <ArrowRight className={`w-4 h-4 text-luxury-gold transition-transform duration-500 ${isExpanded ? 'rotate-90' : ''}`} />
+            <div className="w-8 h-8 md:w-10 md:h-10 border border-luxury-gold/30 flex items-center justify-center group-hover/btn:border-luxury-gold transition-colors">
+               <ArrowRight className={`w-3 h-3 md:w-4 md:h-4 text-luxury-gold transition-transform duration-500 ${isExpanded ? 'rotate-90' : ''}`} />
             </div>
-            <span className="text-[9px] uppercase tracking-[0.3em] opacity-40 group-hover/btn:opacity-100 transition-opacity">
+            <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] opacity-40 group-hover/btn:opacity-100 transition-opacity">
               {isExpanded ? 'Show Less' : 'See Full Narrative'}
             </span>
           </button>
@@ -121,40 +120,40 @@ const Exhibition = ({ setView }) => {
 
   return (
     <div className="bg-luxury-black min-h-screen selection:bg-luxury-gold/30 font-sans text-luxury-cream">
-      <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/90 backdrop-blur-md py-6 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/90 backdrop-blur-md py-4 md:py-6 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
           <button 
             onClick={() => setView('home')}
-            className="flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] text-luxury-gold hover:text-white transition-all group"
+            className="flex items-center gap-3 md:gap-4 text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-luxury-gold hover:text-white transition-all group"
           >
-            <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" /> Back to Portfolio
+            <ChevronLeft className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:-translate-x-1" /> Back
           </button>
-          <img src="/Mosaic/star.png" alt="Urban Mosaic Logo" className="h-10 w-auto object-contain" />
+          <img src="/Mosaic/star.png" alt="Urban Mosaic Logo" className="h-8 md:h-10 w-auto object-contain" />
         </div>
       </nav>
 
       {/* Exhibition Hero */}
-      <section className="pt-40 pb-20 px-6">
+      <section className="pt-32 md:pt-40 pb-16 md:pb-20 px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-8 flex flex-col items-center"
+            className="space-y-6 md:space-y-8 flex flex-col items-center"
           >
-            <img src="/Mosaic/Mosaic_White.png" alt="Urban Mosaic" className="h-32 md:h-48 w-auto mb-4" />
-            <p className="text-luxury-gold uppercase tracking-[0.5em] text-xs">A Photographic Narrative</p>
-            <h1 className="font-serif text-6xl md:text-8xl leading-none">Mobility, Belonging, and Creativity</h1>
-            <div className="w-20 h-[1px] bg-luxury-gold mx-auto my-12" />
-            <p className="text-luxury-cream/60 leading-relaxed text-lg max-w-2xl mx-auto italic">
-              "The idea for this exhibition came from an observation that many people who live and work in Poznań moved here from countries that seem very far away... We, new inhabitants, create an urban mosaic."
+            <img src="/Mosaic/Mosaic_White.png" alt="Urban Mosaic" className="h-24 md:h-48 w-auto mb-4" />
+            <p className="text-luxury-gold uppercase tracking-[0.3em] md:tracking-[0.5em] text-[10px] md:text-xs">A Photographic Narrative</p>
+            <h1 className="font-serif text-4xl md:text-8xl leading-tight md:leading-none px-4">Mobility, Belonging, and Creativity</h1>
+            <div className="w-12 md:w-20 h-[1px] bg-luxury-gold mx-auto my-8 md:my-12" />
+            <p className="text-luxury-cream/60 leading-relaxed text-base md:text-lg max-w-2xl mx-auto italic px-4">
+              "The idea for this exhibition came from an observation that many people who live and work in Poznań moved here from countries that seem very far away..."
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* The Mosaic Implementation */}
-      <section className="py-20 px-6 bg-white/[0.02]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-white/[0.02]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
            <div className="relative aspect-[3/4] bg-luxury-black border border-white/10 overflow-hidden group">
               <img 
                 src="/Mosaic/Masaic_Poster.png" 
@@ -163,19 +162,19 @@ const Exhibition = ({ setView }) => {
               />
               <div className="absolute inset-0 bg-luxury-black/10 group-hover:bg-transparent transition-colors duration-500" />
            </div>
-           <div className="space-y-8">
-             <h2 className="font-serif text-4xl">The Symbolism of Space</h2>
-             <p className="text-luxury-cream/60 leading-relaxed">
-               The exhibition opens with a large-format mosaic. It serves as a symbolic prologue, introducing the viewer to the network of human relationships that co-create the modern city. Poznań is revealed as a multicultural, heterogeneous city—a home-city that is also a living cultural scene.
+           <div className="space-y-6 md:space-y-8">
+             <h2 className="font-serif text-3xl md:text-4xl">The Symbolism of Space</h2>
+             <p className="text-luxury-cream/60 leading-relaxed text-sm md:text-base">
+               The exhibition opens with a large-format mosaic. It serves as a symbolic prologue, introducing the viewer to the network of human relationships that co-create the modern city. Poznań is revealed as a multicultural, heterogeneous city.
              </p>
-             <div className="pt-8 grid grid-cols-2 gap-8 border-t border-white/5">
+             <div className="pt-6 md:pt-8 grid grid-cols-2 gap-6 md:gap-8 border-t border-white/5">
                <div>
-                 <p className="text-luxury-gold text-2xl font-serif">WBPiCAK</p>
-                 <p className="text-[9px] uppercase tracking-widest opacity-40">Gallery Venue</p>
+                 <p className="text-luxury-gold text-xl md:text-2xl font-serif">WBPiCAK</p>
+                 <p className="text-[8px] md:text-[9px] uppercase tracking-widest opacity-40">Gallery Venue</p>
                </div>
                <div>
-                 <p className="text-luxury-gold text-2xl font-serif">2026</p>
-                 <p className="text-[9px] uppercase tracking-widest opacity-40">Exhibition Year</p>
+                 <p className="text-luxury-gold text-xl md:text-2xl font-serif">2026</p>
+                 <p className="text-[8px] md:text-[9px] uppercase tracking-widest opacity-40">Exhibition Year</p>
                </div>
              </div>
            </div>
@@ -183,8 +182,8 @@ const Exhibition = ({ setView }) => {
       </section>
 
       {/* The Stories */}
-      <section className="py-32 px-6">
-        <div className="max-w-7xl mx-auto space-y-32">
+      <section className="py-20 md:py-32 px-4 md:px-6">
+        <div className="max-w-7xl mx-auto space-y-20 md:space-y-32">
           {participants.map((person, i) => (
             <ParticipantCard key={person.name} person={person} index={i} />
           ))}
@@ -192,25 +191,25 @@ const Exhibition = ({ setView }) => {
       </section>
 
       {/* Interactivity Section */}
-      <section className="py-32 px-6 bg-white/[0.02]">
-         <div className="max-w-3xl mx-auto text-center space-y-12">
-            <h2 className="font-serif text-4xl">The Chalkboard Question</h2>
-            <div className="p-16 border-2 border-dashed border-white/10 bg-luxury-black relative overflow-hidden">
+      <section className="py-20 md:py-32 px-4 md:px-6 bg-white/[0.02]">
+         <div className="max-w-3xl mx-auto text-center space-y-8 md:space-y-12">
+            <h2 className="font-serif text-3xl md:text-4xl">The Chalkboard Question</h2>
+            <div className="p-8 md:p-16 border-2 border-dashed border-white/10 bg-luxury-black relative overflow-hidden">
               <div className="absolute inset-0 bg-noise opacity-5" />
-              <p className="font-serif text-5xl md:text-7xl text-luxury-gold/80 relative z-10">
+              <p className="font-serif text-3xl md:text-7xl text-luxury-gold/80 relative z-10 leading-tight">
                 "What are you trying to grow into?"
               </p>
             </div>
-            <p className="text-luxury-cream/40 text-sm max-w-xl mx-auto">
+            <p className="text-luxury-cream/40 text-xs md:text-sm max-w-xl mx-auto px-4">
               An interactive element of the exhibition—a space where the audience leaves reflections, affirmations, or personal stories written in chalk.
             </p>
          </div>
       </section>
 
       {/* Schedule */}
-      <section className="py-32 px-6">
+      <section className="py-20 md:py-32 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-serif text-5xl mb-16">Harmonogram</h2>
+          <h2 className="font-serif text-4xl md:text-5xl mb-12 md:mb-16">Harmonogram</h2>
           <div className="space-y-px bg-white/5 border border-white/5">
             {[
               { date: '26.06', title: 'Wernisaż & Jam Session', desc: 'Opening event with ROOSE Jazz Bar by Miki.' },
@@ -218,13 +217,13 @@ const Exhibition = ({ setView }) => {
               { date: 'Lipiec', title: 'Photo Walk', desc: 'Analog capture session with KN Fotolab.' },
               { date: '31.07', title: 'Finisaż Wystawy', desc: 'Closing meeting and project summary.' },
             ].map((event) => (
-              <div key={event.title} className="bg-luxury-black p-8 md:p-12 flex flex-col md:flex-row gap-8 items-start md:items-center hover:bg-white/[0.03] transition-all">
-                <p className="font-serif text-3xl text-luxury-gold min-w-[120px]">{event.date}</p>
-                <div>
-                  <h4 className="text-lg uppercase tracking-widest mb-2">{event.title}</h4>
-                  <p className="text-luxury-cream/40 text-sm">{event.desc}</p>
+              <div key={event.title} className="bg-luxury-black p-6 md:p-12 flex flex-col md:flex-row gap-4 md:gap-8 items-start md:items-center hover:bg-white/[0.03] transition-all">
+                <p className="font-serif text-2xl md:text-3xl text-luxury-gold min-w-[100px] md:min-w-[120px]">{event.date}</p>
+                <div className="flex-grow">
+                  <h4 className="text-base md:text-lg uppercase tracking-widest mb-1 md:mb-2">{event.title}</h4>
+                  <p className="text-luxury-cream/40 text-xs md:text-sm">{event.desc}</p>
                 </div>
-                <button className="md:ml-auto text-[10px] uppercase tracking-widest text-luxury-gold/50 hover:text-luxury-gold transition-colors">
+                <button className="text-[8px] md:text-[10px] uppercase tracking-widest text-luxury-gold/50 hover:text-luxury-gold transition-colors mt-2 md:mt-0">
                   Add to Calendar
                 </button>
               </div>
@@ -234,12 +233,12 @@ const Exhibition = ({ setView }) => {
       </section>
 
       {/* Exhibition Footer */}
-      <footer className="py-24 px-6 border-t border-luxury-cream/10 bg-luxury-black">
-        <div className="max-w-7xl mx-auto text-center space-y-12">
-          <h2 className="font-serif text-4xl">Experience the Mosaic.</h2>
+      <footer className="py-16 md:py-24 px-4 md:px-6 border-t border-luxury-cream/10 bg-luxury-black">
+        <div className="max-w-7xl mx-auto text-center space-y-8 md:space-y-12">
+          <h2 className="font-serif text-3xl md:text-4xl">Experience the Mosaic.</h2>
           <button 
             onClick={() => setView('home')}
-            className="px-12 py-5 bg-luxury-cream text-luxury-black uppercase text-[10px] tracking-[0.4em] font-bold hover:bg-luxury-gold transition-all"
+            className="px-8 md:px-12 py-4 md:py-5 bg-luxury-cream text-luxury-black uppercase text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] font-bold hover:bg-luxury-gold transition-all"
           >
             Back to Home Portfolio
           </button>
