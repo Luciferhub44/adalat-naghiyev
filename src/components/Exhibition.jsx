@@ -31,7 +31,7 @@ const ParticipantCard = ({ person, index }) => {
       <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
         <div className="space-y-2">
           <h3 className="font-serif text-4xl md:text-5xl">{person.name}</h3>
-          <p className="text-luxury-gold/60 uppercase tracking-widest text-[10px] md:text-xs">{person.role}</p>
+          <p className="text-luxury-gold/60 uppercase tracking-widest text-[10px] md:text-xs">{person.country}</p>
         </div>
         
         <div className="relative">
@@ -68,56 +68,56 @@ const Exhibition = ({ setView }) => {
   const participants = [
     {
       name: 'Miki',
-      Country: 'Egypt',
+      country: 'Egypt',
       image: '/Mosaic/Participants/Miki.jpg',
       bio: "Miki’s departure from Egypt is rooted in the long-standing political conditions shaped by military control, which he describes as limiting both daily life and personal development. The environment is portrayed as increasingly restrictive, making adaptation difficult over time.\n\nAfter arriving in Poznań as a student, he gradually shifted from temporary residence to long-term settlement. What began as study evolved into permanence, as he grew attached to the city through everyday familiarity and comfort. He describes this shift as something intuitive rather than planned, emphasizing that belonging emerged through lived experience rather than intention. His migration therefore combines political constraint with a later stabilisation in a place that gradually became home.",
       social: "https://instagram.com/"
     },
     {
       name: 'Senamie',
-      Country: 'Nigeria',
+      country: 'Nigeria',
       image: '/Mosaic/Participants/Senami.jpg',
       bio: "Senamie’s decision to leave Nigeria is tied to long-term structural limitations that made personal and creative development difficult to sustain. He frames migration as a search for conditions where self-realisation and stability would be more achievable, both for himself and those close to him.\n\nRather than responding to a single triggering event, his departure is shaped by accumulated barriers affecting young creatives in particular. Migration in his case is presented as a forward-looking move, driven by the need to access environments where aspiration could be translated into practice.",
       social: "https://instagram.com/"
     },
     {
       name: 'Alena',
-      Country: 'Belarus',
+      country: 'Belarus',
       image: '/Mosaic/Participants/Alena.jpg',
       bio: "Alena’s migration from Belarus is described as a conscious decision shaped by a perceived lack of safety and freedom. She does not present her experience as forced displacement, but rather as a deliberate step toward improving living conditions for herself and her family.\n\nHer account highlights agency within constraint: the decision to leave is framed as preventive rather than reactive. Migration becomes a strategy of safeguarding future stability rather than escaping immediate crisis.",
       social: "https://instagram.com/"
     },
     {
       name: 'Trang',
-      Country: 'Vietnam',
+      country: 'Vietnam',
       image: '/Mosaic/Participants/Trang.jpg',
       bio: "Trang describes her departure from Vietnam as a response to persistent social pressure that limited her ability to develop independently. Expectations of conformity created a sense of restriction that made personal growth difficult.\n\nHer decision to migrate is linked to the desire for autonomy and the possibility of developing “in her own way.” Rather than a sudden rupture, migration appears as a considered move toward an environment where individuality is more possible.",
       social: "https://instagram.com/"
     },
     {
       name: 'Will',
-      Country: 'United States',
+      country: 'United States',
       image: '/Mosaic/Participants/Will.jpg',
       bio: "Will’s mobility originates in a combination of military service and earlier internal movement within the United States. His relocation abroad was enabled by institutional structures rather than a singular personal decision.\n\nExposure to different countries and contexts broadened his sense of scale, shifting his perception of the world beyond his hometown in New Orleans. Migration, in his case, is connected less to departure from constraint and more to expansion through structured mobility opportunities.",
       social: "https://instagram.com/"
     },
     {
       name: 'Yukino',
-      Country: 'Japan',
+      country: 'Japan',
       image: '/Mosaic/Participants/Yukino.jpg',
       bio: "Yukino’s migration is shaped by professional constraints within the ballet system in Japan. The highly competitive nature of the field and its limited professional opportunities led her to seek training and work in Europe.\n\nHer move is framed as a professional necessity rather than a social or political decision. Europe, in her narrative, represents both historical and technical continuity within her discipline, making migration part of artistic development.",
       social: "https://instagram.com/"
     },
     {
       name: 'Jose Angel',
-      Country: 'Venezuela',
+      country: 'Venezuela',
       image: '/Mosaic/Participants/Jose.jpg',
       bio: "Jose Angel’s migration unfolds gradually through a combination of political instability in Venezuela and personal family-related difficulties. His first move to Argentina in 2015 is described as the result of accumulated circumstances rather than a single decisive moment.\n\nHis trajectory reflects layered motivations where structural instability and intimate pressures intersect. Migration emerges as a process of alignment between external conditions and personal readiness to leave.",
       social: "https://instagram.com/"
     },
     {
       name: 'Peter',
-      Country: 'China',
+      country: 'Hungary',
       image: '/Mosaic/Participants/Peter.jpg',
       bio: "Peter’s migration begins in an unplanned and informal way, initially linked to a gap year and a spontaneous suggestion from his father to study music abroad. What begins as an opportunity quickly becomes a longer trajectory shaped by external events.\n\nLater relocation to Poznań is connected to geopolitical disruption following the war in Ukraine. His migration path combines chance, family influence, and forced adaptation to changing circumstances.",
       social: "https://instagram.com/"

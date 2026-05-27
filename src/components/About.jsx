@@ -39,7 +39,7 @@ const About = ({ setView }) => {
               Whether documenting a raw, personal connection or building a brand's complete visual identity, my focus remains the same: taking your internal concept and engineering it into an undeniable visual reality.
             </p>
             <p className="text-xs italic text-luxury-cream/40">
-              I work across Poznań and Poland, moving between digital and analog film — chosen for what each medium demands of the subject.
+              I work across Poznań and Poland, moving between digital and analog photography — chosen for what each medium demands of the subject.
             </p>
           </div>
 
