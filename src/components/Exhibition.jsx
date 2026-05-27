@@ -35,20 +35,26 @@ const ParticipantCard = ({ person, index }) => {
         </div>
         
         <div className="relative">
-          <div className={`text-luxury-cream/50 leading-relaxed italic transition-all duration-500 text-sm md:text-base ${!isExpanded ? 'line-clamp-4' : ''}`}>
+          <div 
+            className={`text-luxury-cream/50 leading-relaxed italic transition-all duration-700 text-sm md:text-base overflow-hidden ${!isExpanded ? 'max-h-[7.2rem] md:max-h-[9.6rem]' : 'max-h-[1000px]'}`}
+          >
             {person.bio.split('\n\n').map((para, i) => (
               <p key={i} className={i > 0 ? 'mt-4' : ''}>{para}</p>
             ))}
           </div>
           
+          {!isExpanded && (
+            <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-luxury-black to-transparent pointer-events-none" />
+          )}
+          
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-4 md:mt-6 flex items-center gap-4 group/btn"
+            className="mt-4 md:mt-6 flex items-center gap-4 group/btn w-full md:w-auto"
           >
-            <div className="w-8 h-8 md:w-10 md:h-10 border border-luxury-gold/30 flex items-center justify-center group-hover/btn:border-luxury-gold transition-colors">
-               <ArrowRight className={`w-3 h-3 md:w-4 md:h-4 text-luxury-gold transition-transform duration-500 ${isExpanded ? 'rotate-90' : ''}`} />
+            <div className="w-8 h-8 md:w-10 md:h-10 border border-luxury-gold/30 flex items-center justify-center group-hover/btn:border-luxury-gold transition-colors shrink-0">
+               <ArrowRight className={`w-3 h-3 md:w-4 md:h-4 text-luxury-gold transition-transform duration-500 ${isExpanded ? 'rotate-90' : 'group-hover/btn:translate-x-1'}`} />
             </div>
-            <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] opacity-40 group-hover/btn:opacity-100 transition-opacity">
+            <span className="text-[8px] md:text-[9px] uppercase tracking-[0.3em] opacity-60 group-hover/btn:opacity-100 transition-opacity text-left">
               {isExpanded ? 'Show Less' : 'See Full Narrative'}
             </span>
           </button>
