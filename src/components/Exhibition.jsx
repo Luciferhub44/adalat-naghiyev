@@ -1,8 +1,124 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronLeft, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ArrowRight, Instagram, ExternalLink } from 'lucide-react';
+
+const ParticipantCard = ({ person, index }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-16 items-center`}
+    >
+      <div className="w-full md:w-1/2 aspect-[3/4] overflow-hidden grayscale contrast-125 relative group">
+        <img 
+          src={person.image} 
+          alt={person.name}
+          className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-luxury-black/20 group-hover:bg-transparent transition-colors duration-500" />
+        <a 
+          href={person.social} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="absolute bottom-6 right-6 w-12 h-12 bg-luxury-cream text-luxury-black flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-luxury-gold"
+        >
+          <Instagram className="w-5 h-5" />
+        </a>
+      </div>
+      <div className="w-full md:w-1/2 space-y-6">
+        <div className="space-y-2">
+          <p className="text-luxury-gold uppercase tracking-[0.4em] text-[10px]">Oral History • QR Enabled</p>
+          <h3 className="font-serif text-5xl">{person.name}</h3>
+          <p className="text-luxury-gold/60 uppercase tracking-widest text-xs">{person.role}</p>
+        </div>
+        
+        <div className="relative">
+          <div className={`text-luxury-cream/50 leading-relaxed italic transition-all duration-500 ${!isExpanded ? 'line-clamp-4' : ''}`}>
+            {person.bio.split('\n\n').map((para, i) => (
+              <p key={i} className={i > 0 ? 'mt-4' : ''}>{para}</p>
+            ))}
+          </div>
+          
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="mt-6 flex items-center gap-4 group/btn"
+          >
+            <div className="w-10 h-10 border border-luxury-gold/30 flex items-center justify-center group-hover/btn:border-luxury-gold transition-colors">
+               <ArrowRight className={`w-4 h-4 text-luxury-gold transition-transform duration-500 ${isExpanded ? 'rotate-90' : ''}`} />
+            </div>
+            <span className="text-[9px] uppercase tracking-[0.3em] opacity-40 group-hover/btn:opacity-100 transition-opacity">
+              {isExpanded ? 'Show Less' : 'See Full Narrative'}
+            </span>
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const Exhibition = ({ setView }) => {
+  const participants = [
+    {
+      name: 'Miki',
+      role: 'Egyptian Musician',
+      image: '/Mosaic/Participants/Miki.jpg',
+      bio: "Miki’s departure from Egypt is rooted in the long-standing political conditions shaped by military control, which he describes as limiting both daily life and personal development. The environment is portrayed as increasingly restrictive, making adaptation difficult over time.\n\nAfter arriving in Poznań as a student, he gradually shifted from temporary residence to long-term settlement. What began as study evolved into permanence, as he grew attached to the city through everyday familiarity and comfort. He describes this shift as something intuitive rather than planned, emphasizing that belonging emerged through lived experience rather than intention. His migration therefore combines political constraint with a later stabilisation in a place that gradually became home.",
+      social: "https://instagram.com/"
+    },
+    {
+      name: 'Senamie',
+      role: 'Nigerian Painter',
+      image: '/Mosaic/Participants/Senami.jpg',
+      bio: "Senamie’s decision to leave Nigeria is tied to long-term structural limitations that made personal and creative development difficult to sustain. He frames migration as a search for conditions where self-realisation and stability would be more achievable, both for himself and those close to him.\n\nRather than responding to a single triggering event, his departure is shaped by accumulated barriers affecting young creatives in particular. Migration in his case is presented as a forward-looking move, driven by the need to access environments where aspiration could be translated into practice.",
+      social: "https://instagram.com/"
+    },
+    {
+      name: 'Alena',
+      role: 'Belarusian Artist',
+      image: '/Mosaic/Participants/Alena.jpg',
+      bio: "Alena’s migration from Belarus is described as a conscious decision shaped by a perceived lack of safety and freedom. She does not present her experience as forced displacement, but rather as a deliberate step toward improving living conditions for herself and her family.\n\nHer account highlights agency within constraint: the decision to leave is framed as preventive rather than reactive. Migration becomes a strategy of safeguarding future stability rather than escaping immediate crisis.",
+      social: "https://instagram.com/"
+    },
+    {
+      name: 'Trang',
+      role: 'Vietnamese Chef',
+      image: '/Mosaic/Participants/Trang.jpg',
+      bio: "Trang describes her departure from Vietnam as a response to persistent social pressure that limited her ability to develop independently. Expectations of conformity created a sense of restriction that made personal growth difficult.\n\nHer decision to migrate is linked to the desire for autonomy and the possibility of developing “in her own way.” Rather than a sudden rupture, migration appears as a considered move toward an environment where individuality is more possible.",
+      social: "https://instagram.com/"
+    },
+    {
+      name: 'Will',
+      role: 'US Citizen',
+      image: '/Mosaic/Participants/Will.jpg',
+      bio: "Will’s mobility originates in a combination of military service and earlier internal movement within the United States. His relocation abroad was enabled by institutional structures rather than a singular personal decision.\n\nExposure to different countries and contexts broadened his sense of scale, shifting his perception of the world beyond his hometown in New Orleans. Migration, in his case, is connected less to departure from constraint and more to expansion through structured mobility opportunities.",
+      social: "https://instagram.com/"
+    },
+    {
+      name: 'Yukino',
+      role: 'Japanese Ballerina',
+      image: '/Mosaic/Participants/Yukino.jpg',
+      bio: "Yukino’s migration is shaped by professional constraints within the ballet system in Japan. The highly competitive nature of the field and its limited professional opportunities led her to seek training and work in Europe.\n\nHer move is framed as a professional necessity rather than a social or political decision. Europe, in her narrative, represents both historical and technical continuity within her discipline, making migration part of artistic development.",
+      social: "https://instagram.com/"
+    },
+    {
+      name: 'Jose Angel',
+      role: 'Venezuelan Creative',
+      image: '/Mosaic/Participants/Jose.jpg',
+      bio: "Jose Angel’s migration unfolds gradually through a combination of political instability in Venezuela and personal family-related difficulties. His first move to Argentina in 2015 is described as the result of accumulated circumstances rather than a single decisive moment.\n\nHis trajectory reflects layered motivations where structural instability and intimate pressures intersect. Migration emerges as a process of alignment between external conditions and personal readiness to leave.",
+      social: "https://instagram.com/"
+    },
+    {
+      name: 'Peter',
+      role: 'Hungarian Musician',
+      image: '/Mosaic/Participants/Peter.jpg',
+      bio: "Peter’s migration begins in an unplanned and informal way, initially linked to a gap year and a spontaneous suggestion from his father to study music abroad. What begins as an opportunity quickly becomes a longer trajectory shaped by external events.\n\nLater relocation to Poznań is connected to geopolitical disruption following the war in Ukraine. His migration path combines chance, family influence, and forced adaptation to changing circumstances.",
+      social: "https://instagram.com/"
+    }
+  ];
+
   return (
     <div className="bg-luxury-black min-h-screen selection:bg-luxury-gold/30 font-sans text-luxury-cream">
       <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/90 backdrop-blur-md py-6 border-b border-white/5">
@@ -13,7 +129,7 @@ const Exhibition = ({ setView }) => {
           >
             <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" /> Back to Portfolio
           </button>
-          <img src="/Urban-Logo.png" alt="Urban Mosaic Logo" className="h-10 w-auto object-contain" />
+          <img src="/Mosaic/star.png" alt="Urban Mosaic Logo" className="h-10 w-auto object-contain" />
         </div>
       </nav>
 
@@ -25,7 +141,7 @@ const Exhibition = ({ setView }) => {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-8 flex flex-col items-center"
           >
-            <img src="/Urban-Logo.png" alt="Urban Mosaic" className="h-32 md:h-48 w-auto mb-4" />
+            <img src="/Mosaic/Mosaic_White.png" alt="Urban Mosaic" className="h-32 md:h-48 w-auto mb-4" />
             <p className="text-luxury-gold uppercase tracking-[0.5em] text-xs">A Photographic Narrative</p>
             <h1 className="font-serif text-6xl md:text-8xl leading-none">Creativity, Movement, and Vibrancy</h1>
             <div className="w-20 h-[1px] bg-luxury-gold mx-auto my-12" />
@@ -74,41 +190,8 @@ const Exhibition = ({ setView }) => {
       {/* The Stories */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto space-y-32">
-          {[
-            { name: 'Yukino', role: 'Japanese Ballerina', seed: 'ballet' },
-            { name: 'Miki', role: 'Egyptian Musician', seed: 'jazz' },
-            { name: 'Trang', role: 'Vietnamese Chef', seed: 'chef' },
-            { name: 'Senamie', role: 'Nigerian Painter', seed: 'painter' },
-          ].map((person, i) => (
-            <motion.div 
-              key={person.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-16 items-center`}
-            >
-              <div className="w-full md:w-1/2 aspect-[3/4] overflow-hidden grayscale contrast-125">
-                <img 
-                  src={`https://picsum.photos/seed/${person.seed}/800/1100`} 
-                  alt={person.name}
-                  className="w-full h-full object-cover transition-transform duration-[2s] hover:scale-110"
-                />
-              </div>
-              <div className="w-full md:w-1/2 space-y-6">
-                <p className="text-luxury-gold uppercase tracking-[0.4em] text-[10px]">Oral History • QR Enabled</p>
-                <h3 className="font-serif text-5xl">{person.name}</h3>
-                <p className="text-luxury-gold/60 uppercase tracking-widest text-xs">{person.role}</p>
-                <p className="text-luxury-cream/50 leading-relaxed italic">
-                  "Being creative is not only about being an artist but also a way to create a home, a safe space, and a comfortable place."
-                </p>
-                <div className="flex gap-4 pt-4">
-                  <div className="w-12 h-12 border border-luxury-gold/30 flex items-center justify-center">
-                     <ArrowRight className="w-5 h-5 text-luxury-gold" />
-                  </div>
-                  <p className="text-[9px] uppercase tracking-[0.3em] flex items-center leading-none opacity-40">View Full Narrative</p>
-                </div>
-              </div>
-            </motion.div>
+          {participants.map((person, i) => (
+            <ParticipantCard key={person.name} person={person} index={i} />
           ))}
         </div>
       </section>

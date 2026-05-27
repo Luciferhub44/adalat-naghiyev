@@ -6,8 +6,12 @@ const Footer = () => {
       <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-center gap-12">
         <div>
-          <a href="#" className="font-serif text-3xl font-bold tracking-widest text-luxury-cream">
-            A.N<span className="text-luxury-gold">.</span>
+          <a href="/" className="block group">
+            <img 
+              src="/AN_Logo.png" 
+              alt="Adalat Naghiyev" 
+              className="h-12 md:h-16 opacity-80 group-hover:opacity-100 transition-all duration-500" 
+            />
           </a>
         </div>
 

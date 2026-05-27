@@ -23,8 +23,12 @@ const Navbar = ({ setView }) => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-luxury-black/90 backdrop-blur-md py-4' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="font-serif text-2xl font-bold tracking-widest text-luxury-cream">
-          A.N<span className="text-luxury-gold">.</span>
+        <a href="/" className="flex items-center">
+          <img 
+            src="/AN_Logo.png" 
+            alt="Adalat Naghiyev" 
+            className="h-8 md:h-10 transition-transform duration-300 hover:scale-105" 
+          />
         </a>
 
         {/* Desktop Links */}
