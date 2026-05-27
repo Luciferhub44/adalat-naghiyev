@@ -116,7 +116,7 @@ const Exhibition = ({ setView }) => {
     },
     {
       name: 'Peter',
-      country: 'Hungary',
+      country: 'China',
       image: '/Mosaic/Participants/Peter.jpg',
       bio: "Peter’s migration begins in an unplanned and informal way, initially linked to a gap year and a spontaneous suggestion from his father to study music abroad. What begins as an opportunity quickly becomes a longer trajectory shaped by external events.\n\nLater relocation to Poznań is connected to geopolitical disruption following the war in Ukraine. His migration path combines chance, family influence, and forced adaptation to changing circumstances.",
       social: "https://instagram.com/"
