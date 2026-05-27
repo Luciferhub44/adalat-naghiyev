@@ -143,7 +143,7 @@ const Exhibition = ({ setView }) => {
           >
             <img src="/Mosaic/Mosaic_White.png" alt="Urban Mosaic" className="h-32 md:h-48 w-auto mb-4" />
             <p className="text-luxury-gold uppercase tracking-[0.5em] text-xs">A Photographic Narrative</p>
-            <h1 className="font-serif text-6xl md:text-8xl leading-none">Creativity, Movement, and Vibrancy</h1>
+            <h1 className="font-serif text-6xl md:text-8xl leading-none">Mobility, Belonging, and Creativity</h1>
             <div className="w-20 h-[1px] bg-luxury-gold mx-auto my-12" />
             <p className="text-luxury-cream/60 leading-relaxed text-lg max-w-2xl mx-auto italic">
               "The idea for this exhibition came from an observation that many people who live and work in Poznań moved here from countries that seem very far away... We, new inhabitants, create an urban mosaic."
@@ -155,18 +155,13 @@ const Exhibition = ({ setView }) => {
       {/* The Mosaic Implementation */}
       <section className="py-20 px-6 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-           <div className="relative aspect-square bg-luxury-black border border-white/10 overflow-hidden">
+           <div className="relative aspect-[3/4] bg-luxury-black border border-white/10 overflow-hidden group">
               <img 
-                src="https://picsum.photos/seed/mosaic-wall/1200/1200" 
-                className="w-full h-full object-cover grayscale opacity-50"
-                alt="Large Scale Mosaic"
+                src="/Mosaic/Masaic_Poster.png" 
+                className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
+                alt="Urban Mosaic Exhibition Poster"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8 bg-luxury-black/80 backdrop-blur-sm border border-luxury-gold/20">
-                  <p className="font-serif text-4xl mb-2">250 × 230 cm</p>
-                  <p className="text-[10px] uppercase tracking-widest text-luxury-gold">The Prologue Installation</p>
-                </div>
-              </div>
+              <div className="absolute inset-0 bg-luxury-black/10 group-hover:bg-transparent transition-colors duration-500" />
            </div>
            <div className="space-y-8">
              <h2 className="font-serif text-4xl">The Symbolism of Space</h2>
