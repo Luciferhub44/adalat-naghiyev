@@ -12,13 +12,12 @@ const ParticipantCard = ({ person, index }) => {
       viewport={{ once: true }}
       className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-16 items-center`}
     >
-      <div className="w-full md:w-1/2 aspect-[3/4] overflow-hidden grayscale contrast-125 relative group">
+      <div className="w-full md:w-1/2 aspect-[3/4] overflow-hidden relative group border border-white/5">
         <img 
           src={person.image} 
           alt={person.name}
-          className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-luxury-black/20 group-hover:bg-transparent transition-colors duration-500" />
         <a 
           href={person.social} 
           target="_blank" 
