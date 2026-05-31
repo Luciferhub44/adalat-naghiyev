@@ -7,7 +7,6 @@ export const PORTFOLIO_ITEMS = [
   { id: 6, category: 'Portraiture', title: 'Character Study', image: '/Featured/Editorial/2.jpg', size: 'large', desc: 'Translating identity into imagery through deep studio work.' },
   { id: 8, category: 'Commercial', title: 'Rooftop Series', image: '/Featured/Renaissance/2.jpg', size: 'medium', desc: 'Capturing the movement and energy of high fashion.' },
   { id: 10, category: 'Portraiture', title: 'MOMA Collab', image: '/Featured/Editorial/4.jpg', size: 'large', desc: 'Museum-grade whitespace and deliberate composition.' },
-  { id: 12, category: 'Commercial', title: 'Skin & Texture', seed: '', size: 'small', desc: 'Object-led visual worlds built from cultural weight.' },
   { id: 13, category: 'Portraiture', title: 'Spatial Dynamics', image: '/Featured/Editorial/3.jpg', size: 'medium', desc: 'Exploring the relationship between form and architectural space.' },
   { id: 14, category: 'Portraiture', title: 'Color Theory', image: '/Featured/Editorial/5.jpg', size: 'small', desc: 'Vibrant contrasts and saturated tones in studio.' },
   { id: 15, category: 'Portraiture', title: 'Motion Study', image: '/Featured/Editorial/6.jpg', size: 'large', desc: 'Capturing movement and fluidity in a static frame.' },

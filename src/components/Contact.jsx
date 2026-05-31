@@ -27,7 +27,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[8px] uppercase tracking-widest text-luxury-cream/40 mb-1">Email Inquiry</p>
-                  <p className="text-xl hover:text-luxury-gold transition-colors duration-300">info@adalatnaghiyev.com</p>
+                  <p className="text-xl hover:text-luxury-gold transition-colors duration-300">hello@adalatnaghiyev.com</p>
                 </div>
               </div>
 
