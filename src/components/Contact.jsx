@@ -94,10 +94,12 @@ const Contact = () => {
                    <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1">Project Category</label>
                    <select className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold appearance-none transition-colors duration-300">
                       <option className="bg-luxury-black">Select Category</option>
-                      <option className="bg-luxury-black">Portrait Session</option>
-                      <option className="bg-luxury-black">Event Coverage</option>
-                      <option className="bg-luxury-black">Commercial Work</option>
-                      <option className="bg-luxury-black">Other</option>
+                      <option className="bg-luxury-black">Portrait and Artist Session</option>
+                      <option className="bg-luxury-black">Couple or Engagement Session</option>
+                      <option className="bg-luxury-black">Concert and Event Documentation</option>
+                      <option className="bg-luxury-black">Brand and Commercial Project</option>
+                      <option className="bg-luxury-black">Real Estate or Interior Space</option>
+                      <option className="bg-luxury-black">Other Custom Project</option>
                    </select>
                 </div>
 
