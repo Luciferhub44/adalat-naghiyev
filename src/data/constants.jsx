@@ -54,19 +54,24 @@ export const SERVICES = [
 
 export const TESTIMONIALS = [
   {
-    quote: "Adalat has an uncanny ability to capture the emotion of a moment before it even happens. His work isn't just photography; it's high art.",
-    author: "Elena Rossi",
-    type: "Editorial Portrait"
+    quote: "Me and Adalat worked on a project with Old Town Vintage. What i liked the most was how every picture was an adventure. Adalat brought his vintage camera, and we had about 36 pictures total. That meant that we had to prepare everything to take one picture and move on to the next one in a different area. Working with Adalat didn't seem like work at all. When needed he knew how to make a joke when smile was necessary :) 100% recommend",
+    author: "Wiktor Czechowski",
+    type: "Old Town Vintage Project"
   },
   {
-    quote: "Professionalism meets pure creativity. The brand shoot Adalat delivered exceeded our guidelines and brought a new level of sophistication.",
-    author: "Jameson Vane",
-    type: "Marketing Director"
+    quote: "Working with Adalat was an absolute pleasure. His creative eye, professionalism, and ability to capture genuine moments made the entire experience effortless and enjoyable.",
+    author: "Angel Peres Affanchao",
+    type: "Collaborator"
   },
   {
-    quote: "His Renaissance Fashion Show coverage was like stills from a classic film. Every frame is composed with such care.",
-    author: "Phil D.",
-    type: "Fashion Designer"
+    quote: "Sesja była absolutnie wyjątkowa Klimat Poznania w połączeniu z paryskim stylem stworzył coś naprawdę magicznego. Czułam się bardzo kobieco, swobodnie i pięknie przez cały czas trwania i pełna pozytywnej energii, dzięki czemu stres zniknął już po kilku minutach. Zdjęcia wyszły przepięknie — naturalne, eleganckie i pełne emocji. Cała sesja była dopracowana w najmniejszych detalach, a efekt końcowy przerósł moje oczekiwania. To była nie tylko sesja zdjęciowa, ale też cudowne doświadczenie i chwila tylko dla siebie Z całego serca polecam każdej kobiecie, która chce poczuć się wyjątkowo i zobaczyć siebie w pięknym, subtelnym wydaniu",
+    author: "Magdalena Wróż-Jankowska",
+    type: "Editorial Session"
+  },
+  {
+    quote: "My graduation photoshoot with Adalat was absolutely incredible! The inspiration, preparation, and execution all came together seamlessly. Throughout the shoot, Adalat kept the atmosphere relaxed while maintaining professionalism and keen attention to detail. He skillfully adjusted my gown, hair, and earrings—catching every little detail to ensure a flawless look. Each background was thoughtfully designed to match a specific outfit and mood—a doctor, a diva, and a curator. I can’t recommend him enough!",
+    author: "Julia Stachura",
+    type: "Graduation Photoshoot"
   }
 ];
 
