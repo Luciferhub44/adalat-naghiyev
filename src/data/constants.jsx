@@ -1,54 +1,94 @@
 import React from 'react';
-import { Users, Camera, Briefcase } from 'lucide-react';
+import { Users, Music, Briefcase, Home } from 'lucide-react';
 
 export const PORTFOLIO_ITEMS = [
-  { id: 1, category: 'Editorial', title: 'Julia Stachura', image: '/Featured/Editorial/1.jpg', size: 'large', desc: 'Deep studio tones and deliberate stillness. A collaboration built around character, not performance.' },
-  { id: 2, category: 'Film', title: 'Fine Art on Film', seed: 'film-1', size: 'small', desc: "Shot on analog. The grain is not an accident — it's the point. Slow, considered, irreversible." },
-  { id: 3, category: 'Fashion & Runway', title: 'PhilDBrand Show', image: '/Featured/Renaissance/1.jpg', size: 'medium', desc: 'Three floors. Rooftop golden hour. A collection that rewrote the archive and refused to explain itself.' },
-  { id: 4, category: 'Brand', title: 'Wyrobnia Brand', seed: 'craft-1', size: 'small', desc: "Close-up, tactile, honest. Making visible the craft behind an independent maker's identity." },
-  { id: 5, category: 'Brand', title: 'Afro Sasa Brass', seed: 'jewelry-1', size: 'medium', desc: 'Jewellery as language. An object-led visual world built from texture, skin, and cultural weight.' },
-  { id: 6, category: 'Editorial', title: 'Character Study', image: '/Featured/Editorial/2.jpg', size: 'large', desc: 'Translating identity into imagery through deep studio work.' },
-  { id: 7, category: 'Film', title: 'Berlin Archive', seed: 'street-film', size: 'small', desc: 'Observations of light and movement captured on 35mm.' },
-  { id: 8, category: 'Fashion & Runway', title: 'Rooftop Series', image: '/Featured/Renaissance/2.jpg', size: 'medium', desc: 'Capturing the movement and energy of high fashion.' },
-  { id: 9, category: 'Brand', title: 'Tactile Goods', seed: 'brand-1', size: 'small', desc: 'Visual identity for makers and independent brands.' },
-  { id: 10, category: 'Editorial', title: 'MOMA Collab', image: '/Featured/Editorial/4.jpg', size: 'large', desc: 'Museum-grade whitespace and deliberate composition.' },
-  { id: 11, category: 'Film', title: 'Analog Soul', seed: 'film-2', size: 'medium', desc: 'The irreversible beauty of analog photography.' },
-  { id: 12, category: 'Brand', title: 'Skin & Texture', seed: 'brand-2', size: 'small', desc: 'Object-led visual worlds built from cultural weight.' },
-  { id: 13, category: 'Editorial', title: 'Spatial Dynamics', image: '/Featured/Editorial/3.jpg', size: 'medium', desc: 'Exploring the relationship between form and architectural space.' },
-  { id: 14, category: 'Editorial', title: 'Color Theory', image: '/Featured/Editorial/5.jpg', size: 'small', desc: 'Vibrant contrasts and saturated tones in studio.' },
-  { id: 15, category: 'Editorial', title: 'Motion Study', image: '/Featured/Editorial/6.jpg', size: 'large', desc: 'Capturing movement and fluidity in a static frame.' },
-  { id: 16, category: 'Editorial', title: 'Texture & Light', image: '/Featured/Editorial/7.jpg', size: 'medium', desc: 'Close-ups emphasizing material and lighting.' },
-  { id: 17, category: 'Editorial', title: 'The Subject', image: '/Featured/Editorial/8.jpg', size: 'large', desc: 'Intimate portraiture focused on the gaze.' },
-  { id: 18, category: 'Fashion & Runway', title: 'Backstage Details', image: '/Featured/Renaissance/3.jpg', size: 'large', desc: 'The quiet moments before the rush of the runway.' },
-  { id: 19, category: 'Fashion & Runway', title: 'Renaissance Line', image: '/Featured/Renaissance/4.jpg', size: 'medium', desc: 'Fluid fabrics and structural silhouettes.' },
-  { id: 20, category: 'Fashion & Runway', title: 'The Walk', image: '/Featured/Renaissance/5.jpg', size: 'large', desc: 'A study in pacing and presentation.' },
-  { id: 21, category: 'Fashion & Runway', title: 'Designer Portrait', image: '/Featured/Renaissance/6.jpg', size: 'small', desc: 'The creative mind behind the collection.' },
-  { id: 22, category: 'Fashion & Runway', title: 'Final Look', image: '/Featured/Renaissance/7.jpg', size: 'medium', desc: 'The culmination of the runway show.' },
+  { id: 1, category: 'Portraiture', title: 'Julia Stachura', image: '/Featured/Editorial/1.jpg', size: 'large', desc: 'Deep studio tones and deliberate stillness. A collaboration built around character, not performance.' },
+  { id: 2, category: 'Portraiture', title: 'Fine Art on Film', seed: 'film-1', size: 'small', desc: "Shot on analog. The grain is not an accident — it's the point. Slow, considered, irreversible." },
+  { id: 3, category: 'Commercial', title: 'PhilDBrand Show', image: '/Featured/Renaissance/1.jpg', size: 'medium', desc: 'Three floors. Rooftop golden hour. A collection that rewrote the archive and refused to explain itself.' },
+  { id: 4, category: 'Commercial', title: 'Wyrobnia Brand', seed: 'craft-1', size: 'small', desc: "Close-up, tactile, honest. Making visible the craft behind an independent maker's identity." },
+  { id: 5, category: 'Commercial', title: 'Afro Sasa Brass', seed: 'jewelry-1', size: 'medium', desc: 'Jewellery as language. An object-led visual world built from texture, skin, and cultural weight.' },
+  { id: 6, category: 'Portraiture', title: 'Character Study', image: '/Featured/Editorial/2.jpg', size: 'large', desc: 'Translating identity into imagery through deep studio work.' },
+  { id: 7, category: 'Portraiture', title: 'Berlin Archive', seed: 'street-film', size: 'small', desc: 'Observations of light and movement captured on 35mm.' },
+  { id: 8, category: 'Commercial', title: 'Rooftop Series', image: '/Featured/Renaissance/2.jpg', size: 'medium', desc: 'Capturing the movement and energy of high fashion.' },
+  { id: 9, category: 'Commercial', title: 'Tactile Goods', seed: 'brand-1', size: 'small', desc: 'Visual identity for makers and independent brands.' },
+  { id: 10, category: 'Portraiture', title: 'MOMA Collab', image: '/Featured/Editorial/4.jpg', size: 'large', desc: 'Museum-grade whitespace and deliberate composition.' },
+  { id: 11, category: 'Portraiture', title: 'Analog Soul', seed: 'film-2', size: 'medium', desc: 'The irreversible beauty of analog photography.' },
+  { id: 12, category: 'Commercial', title: 'Skin & Texture', seed: 'brand-2', size: 'small', desc: 'Object-led visual worlds built from cultural weight.' },
+  { id: 13, category: 'Portraiture', title: 'Spatial Dynamics', image: '/Featured/Editorial/3.jpg', size: 'medium', desc: 'Exploring the relationship between form and architectural space.' },
+  { id: 14, category: 'Portraiture', title: 'Color Theory', image: '/Featured/Editorial/5.jpg', size: 'small', desc: 'Vibrant contrasts and saturated tones in studio.' },
+  { id: 15, category: 'Portraiture', title: 'Motion Study', image: '/Featured/Editorial/6.jpg', size: 'large', desc: 'Capturing movement and fluidity in a static frame.' },
+  { id: 16, category: 'Portraiture', title: 'Texture & Light', image: '/Featured/Editorial/7.jpg', size: 'medium', desc: 'Close-ups emphasizing material and lighting.' },
+  { id: 17, category: 'Portraiture', title: 'The Subject', image: '/Featured/Editorial/8.jpg', size: 'large', desc: 'Intimate portraiture focused on the gaze.' },
+  { id: 18, category: 'Commercial', title: 'Backstage Details', image: '/Featured/Renaissance/3.jpg', size: 'large', desc: 'The quiet moments before the rush of the runway.' },
+  { id: 19, category: 'Commercial', title: 'Renaissance Line', image: '/Featured/Renaissance/4.jpg', size: 'medium', desc: 'Fluid fabrics and structural silhouettes.' },
+  { id: 20, category: 'Commercial', title: 'The Walk', image: '/Featured/Renaissance/5.jpg', size: 'large', desc: 'A study in pacing and presentation.' },
+  { id: 21, category: 'Commercial', title: 'Designer Portrait', image: '/Featured/Renaissance/6.jpg', size: 'small', desc: 'The creative mind behind the collection.' },
+  { id: 22, category: 'Commercial', title: 'Final Look', image: '/Featured/Renaissance/7.jpg', size: 'medium', desc: 'The culmination of the runway show.' },
 ];
 
-export const CATEGORIES = ['All', 'Editorial', 'Fashion & Runway', 'Brand', 'Film'];
+export const CATEGORIES = ['All', 'Portraiture', 'Concert & Event', 'Commercial', 'Interiors'];
 
 export const SERVICES = [
   {
-    title: 'Editorial Portraiture',
-    description: 'For individuals, artists, and creatives who need images that communicate identity rather than just appearance. Studio or location. Colour or film.',
-    price: 'On request',
+    id: 'portraits',
+    title: 'Portrait Photography',
+    homeDescription: 'Cinematic and intentional portraiture for individuals, artists, couples, and creatives.',
+    cta: 'View Portraits',
     icon: <Users className="w-8 h-8" />,
-    features: ['Pre-shoot consultation', '2–4 hour session', 'Curated selection', 'Retouched originals']
+    tagline: 'A cinematic and editorial approach to human presence.',
+    for: 'Individuals, artists, creatives, couples, graduates, and people who need portraits with direction, character, and atmosphere.',
+    includes: [
+      'Studio portraits', 'Outdoor portraits', 'Location-based portraits', 'Artist portraits', 
+      'Creative portraits', 'Graduation sessions', 'Personal portraits', 'Couple sessions', 
+      'Engagement sessions', 'Editorial-style love stories', 'Selected wedding commissions by request'
+    ],
+    approach: 'The session is built around light, location, styling, composition, and presence. It can be clean and minimal, cinematic and emotional, or more editorial depending on the person and purpose.',
+    fullCTA: 'Inquire about a portrait session'
   },
   {
-    title: 'Fashion & Runway',
-    description: 'Show coverage, lookbooks, and campaign work for independent designers and labels. Built for brands that don\'t want to look like everyone else.',
-    price: 'On request',
-    icon: <Camera className="w-8 h-8" />,
-    features: ['On-site coverage', 'Full campaign documentation', 'Consistent visual language', 'Print & Digital formats']
+    id: 'events',
+    title: 'Concert and Event Documentation',
+    homeDescription: 'Atmospheric coverage of concerts, gigs, festivals, exhibitions, and live cultural moments.',
+    cta: 'View Events',
+    icon: <Music className="w-8 h-8" />,
+    tagline: 'Unobtrusive and atmospheric coverage of live experiences.',
+    for: 'Musicians, festival organizers, venues, galleries, cultural institutions, brands, and event organizers.',
+    includes: [
+      'Concerts', 'Gigs', 'Festivals', 'Exhibitions', 'Cultural events', 
+      'Creative gatherings', 'Venue documentation', 'Atmosphere-focused event coverage'
+    ],
+    approach: 'The goal is to document the energy of the space without interrupting it. The final gallery should include wide environmental shots, people, movement, details, and decisive moments that show the real atmosphere of the event.',
+    fullCTA: 'Book event coverage'
   },
   {
-    title: 'Brand & Commercial',
-    description: 'Visual identity work for independent brands, makers, and product-led businesses. Imagery that communicates what your brand stands for.',
-    price: 'On request',
+    id: 'commercial',
+    title: 'Brand and Commercial Photography',
+    homeDescription: 'Editorial visual content for independent brands, lifestyle businesses, products, campaigns, and launches.',
+    cta: 'View Commercial',
     icon: <Briefcase className="w-8 h-8" />,
-    features: ['Brand brief session', 'Product & Lifestyle', 'Full color grading', 'Usage rights package']
+    tagline: 'Distinct visual content for product-led and lifestyle businesses.',
+    for: 'Jewelry brands, clothing brands, accessories brands, cafes, restaurants, local brands, artists, makers, and independent businesses.',
+    includes: [
+      'Product and lifestyle imagery', 'Lookbooks', 'social media content', 'website content', 
+      'Campaign launches', 'Brand storytelling', 'visual identity work', 'commercial photo sets'
+    ],
+    approach: 'Commercial photography is treated through an editorial lens. The focus is not only on the product, but also on texture, people, atmosphere, use, and the identity around the brand.',
+    fullCTA: 'Discuss a commercial project'
+  },
+  {
+    id: 'interiors',
+    title: 'Real Estate and Interior Photography',
+    homeDescription: 'Clean and inviting imagery for apartments, hostels, rental spaces, hospitality venues, and interiors.',
+    cta: 'View Interiors',
+    icon: <Home className="w-8 h-8" />,
+    tagline: 'Clean, structured, and inviting imagery for interiors and commercial spaces.',
+    for: 'Apartment owners, hostel owners, property managers, rental hosts, hospitality businesses, cafes, restaurants, and interior-focused brands.',
+    includes: [
+      'Apartments', 'Hostels', 'Rental spaces', 'Hospitality spaces', 'Cafes', 
+      'Restaurants', 'Interiors', 'Commercial spaces', 'Spaces prepared for booking platforms or websites'
+    ],
+    approach: 'The work focuses on natural light, structure, clean framing, spatial clarity, and details that make the space feel accurate, attractive, and ready to be booked or presented professionally.',
+    fullCTA: 'Schedule an interior shoot'
   }
 ];
 

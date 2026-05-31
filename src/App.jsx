@@ -11,17 +11,20 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Lightbox from './components/Lightbox';
 import Exhibition from './components/Exhibition';
+import FullServices from './components/FullServices';
 
 import { PORTFOLIO_ITEMS } from './data/constants';
 
 export default function App() {
-  const [view, setView] = useState('home'); // 'home' or 'exhibition'
+  const [view, setView] = useState('home'); // 'home', 'exhibition', or 'services-ID'
   const [selectedItem, setSelectedItem] = useState(null);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
 
   // Scroll to top when view changes
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (view === 'home' || view === 'exhibition') {
+      window.scrollTo(0, 0);
+    }
   }, [view]);
 
   const handleNextItem = () => {
@@ -50,13 +53,18 @@ export default function App() {
     return <Exhibition setView={setView} />;
   }
 
+  if (view.startsWith('services')) {
+    const serviceId = view.split('-')[1];
+    return <FullServices setView={setView} initialServiceId={serviceId} />;
+  }
+
   return (
     <div className="bg-luxury-black selection:bg-luxury-gold/30">
       <Navbar setView={setView} />
       <Hero setView={setView} />
       <Portfolio setSelectedItem={setSelectedItem} />
       <About setView={setView} />
-      <Services />
+      <Services setView={setView} />
       <Testimonials testimonialIndex={testimonialIndex} setTestimonialIndex={setTestimonialIndex} />
       <Contact />
       <Footer />
