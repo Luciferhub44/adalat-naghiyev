@@ -3,17 +3,11 @@ import { Users, Music, Briefcase, Home } from 'lucide-react';
 
 export const PORTFOLIO_ITEMS = [
   { id: 1, category: 'Portraiture', title: 'Julia Stachura', image: '/Featured/Editorial/1.jpg', size: 'large', desc: 'Deep studio tones and deliberate stillness. A collaboration built around character, not performance.' },
-  { id: 2, category: 'Portraiture', title: 'Fine Art on Film', seed: 'film-1', size: 'small', desc: "Shot on analog. The grain is not an accident — it's the point. Slow, considered, irreversible." },
   { id: 3, category: 'Commercial', title: 'PhilDBrand Show', image: '/Featured/Renaissance/1.jpg', size: 'medium', desc: 'Three floors. Rooftop golden hour. A collection that rewrote the archive and refused to explain itself.' },
-  { id: 4, category: 'Commercial', title: 'Wyrobnia Brand', seed: 'craft-1', size: 'small', desc: "Close-up, tactile, honest. Making visible the craft behind an independent maker's identity." },
-  { id: 5, category: 'Commercial', title: 'Afro Sasa Brass', seed: 'jewelry-1', size: 'medium', desc: 'Jewellery as language. An object-led visual world built from texture, skin, and cultural weight.' },
   { id: 6, category: 'Portraiture', title: 'Character Study', image: '/Featured/Editorial/2.jpg', size: 'large', desc: 'Translating identity into imagery through deep studio work.' },
-  { id: 7, category: 'Portraiture', title: 'Berlin Archive', seed: 'street-film', size: 'small', desc: 'Observations of light and movement captured on 35mm.' },
   { id: 8, category: 'Commercial', title: 'Rooftop Series', image: '/Featured/Renaissance/2.jpg', size: 'medium', desc: 'Capturing the movement and energy of high fashion.' },
-  { id: 9, category: 'Commercial', title: 'Tactile Goods', seed: 'brand-1', size: 'small', desc: 'Visual identity for makers and independent brands.' },
   { id: 10, category: 'Portraiture', title: 'MOMA Collab', image: '/Featured/Editorial/4.jpg', size: 'large', desc: 'Museum-grade whitespace and deliberate composition.' },
-  { id: 11, category: 'Portraiture', title: 'Analog Soul', seed: 'film-2', size: 'medium', desc: 'The irreversible beauty of analog photography.' },
-  { id: 12, category: 'Commercial', title: 'Skin & Texture', seed: 'brand-2', size: 'small', desc: 'Object-led visual worlds built from cultural weight.' },
+  { id: 12, category: 'Commercial', title: 'Skin & Texture', seed: '', size: 'small', desc: 'Object-led visual worlds built from cultural weight.' },
   { id: 13, category: 'Portraiture', title: 'Spatial Dynamics', image: '/Featured/Editorial/3.jpg', size: 'medium', desc: 'Exploring the relationship between form and architectural space.' },
   { id: 14, category: 'Portraiture', title: 'Color Theory', image: '/Featured/Editorial/5.jpg', size: 'small', desc: 'Vibrant contrasts and saturated tones in studio.' },
   { id: 15, category: 'Portraiture', title: 'Motion Study', image: '/Featured/Editorial/6.jpg', size: 'large', desc: 'Capturing movement and fluidity in a static frame.' },

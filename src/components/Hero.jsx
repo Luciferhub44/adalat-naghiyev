@@ -27,7 +27,6 @@ const Hero = ({ setView }) => {
           transition={{ delay: 0.5, duration: 1 }}
           className="text-luxury-gold uppercase tracking-[0.5em] text-xs font-medium mb-6"
         >
-          Independent Visual Storyteller
         </motion.p>
         
         <motion.h1 
