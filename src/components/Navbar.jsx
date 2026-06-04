@@ -104,8 +104,12 @@ const Navbar = () => {
               ))}
             </div>
             <div className="flex gap-6 mt-auto py-8 border-t border-luxury-cream/10">
-              <Instagram className="w-5 h-5 opacity-60" />
-              <Youtube className="w-5 h-5 opacity-60" />
+              <a href="https://www.instagram.com/adalatnaghiyev.art/" target="_blank" rel="noopener noreferrer" className="hover:text-luxury-gold transition-colors">
+                <Instagram className="w-5 h-5 opacity-60" />
+              </a>
+              <a href="https://www.youtube.com/@adalatnaghiyev" target="_blank" rel="noopener noreferrer" className="hover:text-luxury-gold transition-colors">
+                <Youtube className="w-5 h-5 opacity-60" />
+              </a>
             </div>
           </motion.div>
         )}
