@@ -17,7 +17,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Work', href: '#work' },
     { name: 'About', href: '#about' },
-    { name: 'Exhibition', onClick: () => navigate('/exhibition') },
+    { name: 'Urban Mosaic', onClick: () => navigate('/um') },
     { name: 'Services', href: '#services' },
     { name: 'Contact', href: '#contact' },
   ];
