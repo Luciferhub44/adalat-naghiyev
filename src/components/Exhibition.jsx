@@ -163,20 +163,20 @@ const Exhibition = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
            <div className="relative aspect-[3/4] bg-luxury-black border border-white/10 overflow-hidden group">
               <img 
-                src="/Mosaic/Masaic_Poster.png" 
+                src="/Mosaic/Um_Poster.png" 
                 className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
                 alt="Urban Mosaic Exhibition Poster"
               />
               <div className="absolute inset-0 bg-luxury-black/10 group-hover:bg-transparent transition-colors duration-500" />
            </div>
            <div className="space-y-6 md:space-y-8">
-             <h2 className="font-serif text-3xl md:text-4xl">The Symbolism of Space</h2>
+             <h2 className="font-serif text-3xl md:text-4xl">About the Project</h2>
              <p className="text-luxury-cream/60 leading-relaxed text-sm md:text-base">
-               The exhibition opens with a large-format mosaic. It serves as a symbolic prologue, introducing the viewer to the network of human relationships that co-create the modern city. Poznań is revealed as a multicultural, heterogeneous city.
+             An exploration of mobility, creativity, and belonging in contemporary Poznań. Urban Mosaic documents the lives of those existing in the "in-between" spaces of migration, examining how different forms of creation are used to build a sense of home when physical borders remain fluid.
              </p>
              <div className="pt-6 md:pt-8 grid grid-cols-2 gap-6 md:gap-8 border-t border-white/5">
                <div>
-                 <p className="text-luxury-gold text-xl md:text-2xl font-serif">WBPiCAK</p>
+                 <p className="text-luxury-gold text-xl md:text-2xl font-serif">Biblioteka Wielkopolska im. Stanisława Barańczaka</p>
                  <p className="text-[8px] md:text-[9px] uppercase tracking-widest opacity-40">Gallery Venue</p>
                </div>
                <div>
@@ -197,38 +197,66 @@ const Exhibition = () => {
         </div>
       </section>
 
-      {/* Interactivity Section */}
-      <section className="py-20 md:py-32 px-4 md:px-6 bg-white/[0.02]">
-         <div className="max-w-3xl mx-auto text-center space-y-8 md:space-y-12">
-            <h2 className="font-serif text-3xl md:text-4xl">The Chalkboard Question</h2>
-            <div className="p-8 md:p-16 border-2 border-dashed border-white/10 bg-luxury-black relative overflow-hidden">
-              <div className="absolute inset-0 bg-noise opacity-5" />
-              <p className="font-serif text-3xl md:text-7xl text-luxury-gold/80 relative z-10 leading-tight">
-                "What are you trying to grow into?"
-              </p>
-            </div>
-            <p className="text-luxury-cream/40 text-xs md:text-sm max-w-xl mx-auto px-4">
-              An interactive element of the exhibition—a space where the audience leaves reflections, affirmations, or personal stories written in chalk.
-            </p>
-         </div>
-      </section>
-
       {/* Schedule */}
       <section className="py-20 md:py-32 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl mb-12 md:mb-16">Harmonogram</h2>
+          <h2 className="font-serif text-4xl md:text-5xl mb-12 md:mb-16">PROGRAM WYDARZEŃ / EVENT CALENDAR</h2>
           <div className="space-y-px bg-white/5 border border-white/5">
             {[
-              { date: '26.06', title: 'Wernisaż & Jam Session', desc: 'Opening event with ROOSE Jazz Bar by Miki.' },
-              { date: 'Lipiec', title: 'City Run z FLEK', desc: 'Active community run through Poznań streets.' },
-              { date: 'Lipiec', title: 'Photo Walk', desc: 'Analog capture session with KN Fotolab.' },
-              { date: '31.07', title: 'Finisaż Wystawy', desc: 'Closing meeting and project summary.' },
+              { 
+                date: '26.06', 
+                title: 'Urban Mosaic: Exhibition Opening & Afterparty', 
+                pl: 'Inauguracja projektu oraz premierowy wernisaż wystawy fotograficznej „URBAN MOSAIC”. Po części oficjalnej zapraszamy na muzyczne afterparty w swobodnej atmosferze.', 
+                en: 'The official launch and premier opening of the "URBAN MOSAIC" photography exhibition. Following the reception, join us for a relaxed musical afterparty.', 
+                details: 'TBA | Wstęp wolny / Free admission' 
+              },
+              { 
+                date: '04.07', 
+                title: 'Urban Mosaic: City Run with FLEK Running Club', 
+                pl: 'Wydarzenie łączące sztukę i ruch. Spotkanie rozpocznie się od oprowadzania po wystawie, po czym wyruszymy na wspólny bieg ulicami Poznania zakończony integracją.', 
+                en: 'An event bridging art and movement. The program begins with a guided exhibition tour, followed by a collective city run through Poznań and a social wrap-up.', 
+                details: 'TBA | Zapisy (limit miejsc) / Registration required' 
+              },
+              { 
+                date: '18.07', 
+                title: 'Urban Mosaic: Papercraft Workshop by Aimable Mugabo', 
+                pl: 'Kolektywne warsztaty upcyclingowe we współpracy z Harmonic Ventures. Uczestnicy stworzą unikalne papierowe formy przestrzenne z materiałów z odzysku.', 
+                en: 'A collaborative upcycling workshop partnership with Harmonic Ventures. Participants will transform recycled materials into unique paper sculptures.', 
+                details: 'TBA | Zapisy (limit miejsc) / Registration required (limited capacity)' 
+              },
+              { 
+                date: '23.07', 
+                title: 'Urban Mosaic: Gallery & Photo Walk + Darkroom Experience', 
+                pl: 'Kuratowany spacer fotograficzny oraz przegląd galerii sztuki współczesnej z Agatą Rodriguez, zwieńczony pokazem tradycyjnego procesu wywoływania odbitek w ciemni Darii Bielinkov.', 
+                en: 'A curated contemporary art gallery tour and photo walk led by Agata Rodriguez, concluding with a live, traditional analog darkroom print demonstration at Daria Bielinkov\'s studio.', 
+                details: 'TBA | Zapisy (limit miejsc) / Registration required (limited capacity)' 
+              },
+              { 
+                date: '25.07', 
+                title: 'Urban Mosaic: Documentary Screening & Exhibition', 
+                pl: 'Pokaz filmu „Roots & Resonance” (BIG studio, reż. Oluwapelumi Osewa) połączony z rozmową z twórcami w Bibliotece Wielkopolskiej, a następnie wizyta w przestrzeni Mothrland na wystawie malarstwa „Prerequisite” autorstwa Easyblack (format Open Studio).', 
+                en: 'A special screening of the documentary "Roots & Resonance" (BIG studio, dir. Oluwapelumi Osewa) followed by an artist talk, concluding with a visit to the Mothrland art space for the open studio exhibition "Prerequisite" by Easyblack.', 
+                details: 'TBA | Wstęp wolny / Free admission' 
+              },
+              { 
+                date: '31.07', 
+                title: 'Urban Mosaic: Artist Talk & Finissage', 
+                pl: 'Finisażowe podsumowanie festiwalu. Kameralne spotkanie z autorem Adalatem Naghiyevem, otwarta dyskusja oraz wspólne, uroczyste zamknięcie przestrzeni wystawowej.', 
+                en: 'The festival finissage and closing reception. An intimate gathering featuring an open dialogue and the collective closing of the exhibition space.', 
+                details: 'TBA | Wstęp wolny / Free admission' 
+              },
             ].map((event) => (
               <div key={event.title} className="bg-luxury-black p-6 md:p-12 flex flex-col md:flex-row gap-4 md:gap-8 items-start md:items-center hover:bg-white/[0.03] transition-all">
                 <p className="font-serif text-2xl md:text-3xl text-luxury-gold min-w-[100px] md:min-w-[120px]">{event.date}</p>
-                <div className="flex-grow">
-                  <h4 className="text-base md:text-lg uppercase tracking-widest mb-1 md:mb-2">{event.title}</h4>
-                  <p className="text-luxury-cream/40 text-xs md:text-sm">{event.desc}</p>
+                <div className="flex-grow space-y-3">
+                  <h4 className="text-base md:text-lg uppercase tracking-widest">{event.title}</h4>
+                  <div className="text-luxury-cream/60 text-xs md:text-sm space-y-2 italic">
+                    <p>{event.pl}</p>
+                    <p className="opacity-60">{event.en}</p>
+                  </div>
+                  <p className="text-luxury-gold text-[10px] md:text-xs uppercase tracking-widest pt-2">
+                    {event.details}
+                  </p>
                 </div>
                 <button className="text-[8px] md:text-[10px] uppercase tracking-widest text-luxury-gold/50 hover:text-luxury-gold transition-colors mt-2 md:mt-0">
                   Add to Calendar

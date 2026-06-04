@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Instagram, Linkedin, Mail, Menu, X } from 'lucide-react';
+import { Instagram, Youtube, Mail, Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -105,8 +105,7 @@ const Navbar = () => {
             </div>
             <div className="flex gap-6 mt-auto py-8 border-t border-luxury-cream/10">
               <Instagram className="w-5 h-5 opacity-60" />
-              <Linkedin className="w-5 h-5 opacity-60" />
-              <Mail className="w-5 h-5 opacity-60" />
+              <Youtube className="w-5 h-5 opacity-60" />
             </div>
           </motion.div>
         )}

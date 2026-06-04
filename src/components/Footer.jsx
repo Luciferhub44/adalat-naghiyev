@@ -22,13 +22,13 @@ const Footer = () => {
         </div>
 
         <div className="flex gap-8">
-          <a href="#" className="text-luxury-cream/40 hover:text-luxury-gold transition-colors font-sans text-[10px] uppercase tracking-widest">Instagram</a>
-          <a href="#" className="text-luxury-cream/40 hover:text-luxury-gold transition-colors font-sans text-[10px] uppercase tracking-widest">Behance</a>
+          <a href="https://www.instagram.com/adalatnaghiyev.art/" className="text-luxury-cream/40 hover:text-luxury-gold transition-colors font-sans text-[10px] uppercase tracking-widest">Instagram</a>
+          <a href="https://www.youtube.com/@adalatnaghiyev" className="text-luxury-cream/40 hover:text-luxury-gold transition-colors font-sans text-[10px] uppercase tracking-widest">Youtube</a>
         </div>
       </div>
       <div className="max-w-7xl mx-auto text-center mt-12">
         <p className="text-[8px] uppercase tracking-[0.3em] text-luxury-cream/20">
-          Currently exhibiting: Urban Mosaic — WBPiCAK, Poznań, 2026.
+          Currently exhibiting: Urban Mosaic — Biblioteka Wielkopolska im. Stanisława Barańczaka, Poznań, 2026.
         </p>
         <p className="text-[8px] uppercase tracking-[0.3em] text-luxury-cream/20 mt-4">
           &copy; 2026 Adalat Naghiyev. All rights reserved.
