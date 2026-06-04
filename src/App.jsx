@@ -60,7 +60,7 @@ export default function App() {
             />
           } 
         />
-        <Route path="/exhibition" element={<Exhibition />} />
+        <Route path="/um" element={<Exhibition />} />
         <Route path="/services/:id" element={<FullServicesWrapper />} />
       </Routes>
     </div>
