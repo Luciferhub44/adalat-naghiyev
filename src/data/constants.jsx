@@ -16,6 +16,7 @@ export const PORTFOLIO_ITEMS = [
   { id: 19, category: 'Commercial', title: 'Renaissance Line', image: '/Featured/Renaissance/4.jpg', size: 'medium', desc: 'Fluid fabrics and structural silhouettes.' },
   { id: 20, category: 'Commercial', title: 'The Walk', image: '/Featured/Renaissance/5.jpg', size: 'large', desc: 'A study in pacing and presentation.' },
   { id: 21, category: 'Commercial', title: 'Designer Portrait', image: '/Featured/Renaissance/6.jpg', size: 'small', desc: 'The creative mind behind the collection.' },
+  { id: 22, category: 'Commercial', title: 'Designer Portrait', image: '/Featured/Renaissance/8.jpg', size: 'medium', desc: 'The creative mind behind the collection.' },
   { id: 22, category: 'Commercial', title: 'Final Look', image: '/Featured/Renaissance/7.jpg', size: 'medium', desc: 'The culmination of the runway show.' },
 ];
 
