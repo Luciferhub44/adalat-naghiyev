@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { STATS } from '../data/constants';
+import { useNavigate } from 'react-router-dom';
 
-const About = ({ setView }) => {
+const About = () => {
+  const navigate = useNavigate();
   return (
     <section id="about" className="py-32 px-6 bg-white/5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -30,7 +32,7 @@ const About = ({ setView }) => {
             <p className="text-luxury-gold uppercase tracking-[0.3em] text-[10px] mb-4">Philosophy</p>
             <h2 className="font-serif text-5xl md:text-6xl leading-tight">Translating Identity <br />Into Imagery</h2>
           </div>
-          
+
           <div className="space-y-6 text-luxury-cream/70 leading-relaxed max-w-lg">
             <p>
               I view photography as the mechanism to articulate stories, feelings, and identities with absolute clarity. It is an exercise in observation and psychology — capturing the nuances that words cannot hold.
@@ -54,10 +56,10 @@ const About = ({ setView }) => {
 
           <div className="pt-4">
             <button 
-              onClick={() => setView('exhibition')}
+              onClick={() => navigate('/um')}
               className="inline-flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] font-medium group text-luxury-cream"
             >
-              View Exhibition <div className="w-10 h-[1px] bg-luxury-gold group-hover:w-16 transition-all duration-300" />
+              View Urban Mosaic <div className="w-10 h-[1px] bg-luxury-gold group-hover:w-16 transition-all duration-300" />
             </button>
           </div>
         </motion.div>

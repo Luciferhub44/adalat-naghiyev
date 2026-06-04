@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Instagram, Linkedin, Mail } from 'lucide-react';
 import { SERVICES } from '../data/constants';
+import { useNavigate } from 'react-router-dom';
 
-const FullServices = ({ setView, initialServiceId }) => {
+const FullServices = ({ initialServiceId }) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (initialServiceId) {
       const element = document.getElementById(initialServiceId);
@@ -21,7 +24,7 @@ const FullServices = ({ setView, initialServiceId }) => {
       <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/90 backdrop-blur-md py-6 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <button 
-            onClick={() => setView('home')}
+            onClick={() => navigate('/')}
             className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] hover:text-luxury-gold transition-colors duration-300"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -94,7 +97,7 @@ const FullServices = ({ setView, initialServiceId }) => {
                   <div className="pt-8">
                     <button 
                       onClick={() => {
-                        setView('home');
+                        navigate('/');
                         setTimeout(() => {
                           const contact = document.getElementById('contact');
                           if (contact) contact.scrollIntoView({ behavior: 'smooth' });

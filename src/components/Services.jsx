@@ -2,8 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { SERVICES } from '../data/constants';
+import { useNavigate } from 'react-router-dom';
 
-const Services = ({ setView }) => {
+const Services = () => {
+  const navigate = useNavigate();
   return (
     <section id="services" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
@@ -35,7 +37,7 @@ const Services = ({ setView }) => {
               </p>
               <div className="mt-auto">
                 <button 
-                  onClick={() => setView(`services-${service.id}`)}
+                  onClick={() => navigate(`/services/${service.id}`)}
                   className="group/btn flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] font-bold text-luxury-gold hover:text-luxury-cream transition-all duration-300"
                 >
                   <span className="relative overflow-hidden">

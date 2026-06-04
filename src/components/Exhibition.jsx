@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ArrowRight, Instagram, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ParticipantCard = ({ person, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -63,7 +64,8 @@ const ParticipantCard = ({ person, index }) => {
   );
 };
 
-const Exhibition = ({ setView }) => {
+const Exhibition = () => {
+  const navigate = useNavigate();
   const participants = [
     {
       name: 'Miki',
@@ -128,7 +130,7 @@ const Exhibition = ({ setView }) => {
       <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/90 backdrop-blur-md py-4 md:py-6 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
           <button 
-            onClick={() => setView('home')}
+            onClick={() => navigate('/')}
             className="flex items-center gap-3 md:gap-4 text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-luxury-gold hover:text-white transition-all group"
           >
             <ChevronLeft className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:-translate-x-1" /> Back
@@ -242,7 +244,7 @@ const Exhibition = ({ setView }) => {
         <div className="max-w-7xl mx-auto text-center space-y-8 md:space-y-12">
           <h2 className="font-serif text-3xl md:text-4xl">Experience the Mosaic.</h2>
           <button 
-            onClick={() => setView('home')}
+            onClick={() => navigate('/')}
             className="px-8 md:px-12 py-4 md:py-5 bg-luxury-cream text-luxury-black uppercase text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] font-bold hover:bg-luxury-gold transition-all"
           >
             Back to Home Portfolio
