@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Instagram, Linkedin, Mail, Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ setView }) => {
+const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -15,7 +17,7 @@ const Navbar = ({ setView }) => {
   const navLinks = [
     { name: 'Work', href: '#work' },
     { name: 'About', href: '#about' },
-    { name: 'Exhibition', onClick: () => setView('exhibition') },
+    { name: 'Exhibition', onClick: () => navigate('/exhibition') },
     { name: 'Services', href: '#services' },
     { name: 'Contact', href: '#contact' },
   ];

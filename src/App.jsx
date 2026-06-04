@@ -1,31 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Portfolio from './components/Portfolio';
-import About from './components/About';
-import Services from './components/Services';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Lightbox from './components/Lightbox';
+import { Routes, Route, useParams, useLocation } from 'react-router-dom';
+import Home from './pages/Home';
 import Exhibition from './components/Exhibition';
 import FullServices from './components/FullServices';
-
+import Navbar from './components/Navbar';
 import { PORTFOLIO_ITEMS } from './data/constants';
 
+const FullServicesWrapper = () => {
+  const { id } = useParams();
+  return <FullServices initialServiceId={id} />;
+};
+
 export default function App() {
-  const [view, setView] = useState('home'); // 'home', 'exhibition', or 'services-ID'
   const [selectedItem, setSelectedItem] = useState(null);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const location = useLocation();
 
-  // Scroll to top when view changes
+  // Scroll to top when path changes
   useEffect(() => {
-    if (view === 'home' || view === 'exhibition') {
-      window.scrollTo(0, 0);
-    }
-  }, [view]);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const handleNextItem = () => {
     const currentIndex = PORTFOLIO_ITEMS.findIndex(i => i.id === selectedItem.id);
@@ -49,37 +43,26 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [selectedItem]);
 
-  if (view === 'exhibition') {
-    return <Exhibition setView={setView} />;
-  }
-
-  if (view.startsWith('services')) {
-    const serviceId = view.split('-')[1];
-    return <FullServices setView={setView} initialServiceId={serviceId} />;
-  }
-
   return (
     <div className="bg-luxury-black selection:bg-luxury-gold/30">
-      <Navbar setView={setView} />
-      <Hero setView={setView} />
-      <Portfolio setSelectedItem={setSelectedItem} />
-      <About setView={setView} />
-      <Services setView={setView} />
-      <Testimonials testimonialIndex={testimonialIndex} setTestimonialIndex={setTestimonialIndex} />
-      <Contact />
-      <Footer />
-
-      {/* Lightbox Portal */}
-      <AnimatePresence>
-        {selectedItem && (
-          <Lightbox 
-            item={selectedItem} 
-            onClose={() => setSelectedItem(null)}
-            onNext={handleNextItem}
-            onPrev={handlePrevItem}
-          />
-        )}
-      </AnimatePresence>
+      {location.pathname === '/' && <Navbar />}
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <Home 
+              selectedItem={selectedItem} 
+              setSelectedItem={setSelectedItem}
+              handleNextItem={handleNextItem}
+              handlePrevItem={handlePrevItem}
+              testimonialIndex={testimonialIndex}
+              setTestimonialIndex={setTestimonialIndex}
+            />
+          } 
+        />
+        <Route path="/exhibition" element={<Exhibition />} />
+        <Route path="/services/:id" element={<FullServicesWrapper />} />
+      </Routes>
     </div>
   );
 }
