@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Instagram, Youtube, Mail, Menu, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -30,103 +31,109 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-luxury-black/90 backdrop-blur-md py-4' : 'bg-luxury-black/80 backdrop-blur-md md:bg-transparent py-8'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="/" className="flex items-center">
-          <img 
-            src="/AN_Logo.png" 
-            alt="Adalat Naghiyev" 
-            className="h-8 md:h-10 transition-transform duration-300 hover:scale-105" 
-          />
-        </a>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-12">
-          {navLinks.map((link) => (
-            link.onClick ? (
-              <button 
-                key={link.name} 
-                onClick={link.onClick}
-                className="text-xs uppercase tracking-[0.2em] font-medium hover:text-luxury-gold transition-colors duration-300 pointer-events-auto"
-              >
-                {link.name}
-              </button>
-            ) : (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="text-xs uppercase tracking-[0.2em] font-medium hover:text-luxury-gold transition-colors duration-300"
-              >
-                {link.name}
-              </a>
-            )
-          ))}
-        </div>
-
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-luxury-cream" 
-          onClick={() => setMobileMenuOpen(true)}
-          aria-label="Open menu"
+  // The overlay is portaled to <body> so it is NOT a descendant of the nav.
+  // The nav uses `backdrop-blur` (backdrop-filter), which would otherwise make
+  // it the containing block for this fixed overlay and shrink it to nav height.
+  const mobileMenu = (
+    <AnimatePresence>
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '100%' }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          className="fixed inset-0 z-[100] flex flex-col p-8 bg-luxury-black"
+          style={{ backgroundColor: '#0a0a0a', backdropFilter: 'none' }}
         >
-          <Menu className="w-6 h-6" />
-        </button>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[100] flex flex-col p-8 bg-luxury-black"
-            // Explicit solid hex guarantees an opaque background regardless of
-            // how the Tailwind `luxury-black` token is configured. No blur,
-            // no opacity modifier — nothing behind it can show through.
-            style={{ backgroundColor: '#0a0a0a', backdropFilter: 'none' }}
-          >
-            <div className="flex justify-end">
-              <button 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-luxury-cream p-2"
-                aria-label="Close menu"
+          <div className="flex justify-end">
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-luxury-cream p-2"
+              aria-label="Close menu"
+            >
+              <X className="w-8 h-8" />
+            </button>
+          </div>
+          <div className="flex flex-col justify-center flex-grow gap-8">
+            {navLinks.map((link, i) => (
+              <motion.button
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 * i }}
+                key={link.name}
+                onClick={() => {
+                  if (link.onClick) link.onClick();
+                  else window.location.href = link.href;
+                  setMobileMenuOpen(false);
+                }}
+                className="font-serif text-5xl hover:italic hover:pl-4 transition-all duration-300 text-luxury-cream text-left"
               >
-                <X className="w-8 h-8" />
-              </button>
-            </div>
-            <div className="flex flex-col justify-center flex-grow gap-8">
-              {navLinks.map((link, i) => (
-                <motion.button
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * i }}
-                  key={link.name} 
-                  onClick={() => {
-                    if (link.onClick) link.onClick();
-                    else window.location.href = link.href;
-                    setMobileMenuOpen(false);
-                  }}
-                  className="font-serif text-5xl hover:italic hover:pl-4 transition-all duration-300 text-luxury-cream text-left"
+                {link.name}
+              </motion.button>
+            ))}
+          </div>
+          <div className="flex gap-6 mt-auto py-8 border-t border-luxury-cream/10">
+            <a href="https://www.instagram.com/adalatnaghiyev.art/" target="_blank" rel="noopener noreferrer" className="hover:text-luxury-gold transition-colors">
+              <Instagram className="w-5 h-5 opacity-60" />
+            </a>
+            <a href="https://www.youtube.com/@adalatnaghiyev" target="_blank" rel="noopener noreferrer" className="hover:text-luxury-gold transition-colors">
+              <Youtube className="w-5 h-5 opacity-60" />
+            </a>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+
+  return (
+    <>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-luxury-black/90 backdrop-blur-md py-4' : 'bg-luxury-black/80 backdrop-blur-md md:bg-transparent py-8'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <a href="/" className="flex items-center">
+            <img
+              src="/AN_Logo.png"
+              alt="Adalat Naghiyev"
+              className="h-8 md:h-10 transition-transform duration-300 hover:scale-105"
+            />
+          </a>
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center gap-12">
+            {navLinks.map((link) => (
+              link.onClick ? (
+                <button
+                  key={link.name}
+                  onClick={link.onClick}
+                  className="text-xs uppercase tracking-[0.2em] font-medium hover:text-luxury-gold transition-colors duration-300 pointer-events-auto"
                 >
                   {link.name}
-                </motion.button>
-              ))}
-            </div>
-            <div className="flex gap-6 mt-auto py-8 border-t border-luxury-cream/10">
-              <a href="https://www.instagram.com/adalatnaghiyev.art/" target="_blank" rel="noopener noreferrer" className="hover:text-luxury-gold transition-colors">
-                <Instagram className="w-5 h-5 opacity-60" />
-              </a>
-              <a href="https://www.youtube.com/@adalatnaghiyev" target="_blank" rel="noopener noreferrer" className="hover:text-luxury-gold transition-colors">
-                <Youtube className="w-5 h-5 opacity-60" />
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+                </button>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-xs uppercase tracking-[0.2em] font-medium hover:text-luxury-gold transition-colors duration-300"
+                >
+                  {link.name}
+                </a>
+              )
+            ))}
+          </div>
+
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden text-luxury-cream"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay — portaled to body to escape the nav's backdrop-filter */}
+      {typeof document !== 'undefined' && createPortal(mobileMenu, document.body)}
+    </>
   );
 };
 
