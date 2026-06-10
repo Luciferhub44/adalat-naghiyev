@@ -56,6 +56,73 @@ const mosaicEvents = [
   },
 ];
 
+// Parses 'dd.mm' and 'HH:MM' into a JS Date (year is always 2026 for these events)
+function eventToJSDate(dateStr, timeStr) {
+  // dateStr: "26.06", timeStr: "17:00"
+  const [day, month] = dateStr.split('.').map((v) => parseInt(v, 10));
+  const [hour, minute] = timeStr.split(':').map((v) => parseInt(v, 10));
+  return new Date(2026, month - 1, day, hour, minute);
+}
+
+// Generates an .ics file content string for one event
+function generateICS(event) {
+  function pad(n) {
+    return n < 10 ? `0${n}` : `${n}`;
+  }
+  // Default duration to 2 hours
+  const start = eventToJSDate(event.date, event.time);
+  const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
+
+  function dateTimeStr(dt) {
+    // Format: YYYYMMDDTHHMMSS (UTC)
+    // Polish time is UTC+2 in July
+    // We'll output as UTC (Z) even if slightly off (for local import that's typical).
+    // But let's do local time (without Z) for easier import (for compatibility).
+    return (
+      dt.getFullYear() +
+      pad(dt.getMonth() + 1) +
+      pad(dt.getDate()) +
+      'T' +
+      pad(dt.getHours()) +
+      pad(dt.getMinutes()) +
+      '00'
+    );
+  }
+
+  // Compose ICS
+  let ics = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Urban Mosaic//EN
+BEGIN:VEVENT
+UID:${event.title.replace(/[^a-zA-Z0-9]/g, '')}@urbanmosaic
+DTSTAMP:${dateTimeStr(new Date())}
+DTSTART:${dateTimeStr(start)}
+DTEND:${dateTimeStr(end)}
+SUMMARY:${event.title}
+DESCRIPTION:${event.en.replace(/\n/g, ' ')}
+LOCATION:Biblioteka Wielkopolska im. Stanisława Barańczaka, Poznań
+END:VEVENT
+END:VCALENDAR
+`;
+  // iCalendar requires \r\n line endings
+  return ics.replace(/\n/g, '\r\n');
+}
+
+// Triggers a file download in browser
+function downloadICS(filename, content) {
+  const blob = new Blob([content], { type: 'text/calendar' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, 100);
+}
+
 // Signup Form for Urban Mosaic Events
 function EventSignupForm() {
   const [selectedEvents, setSelectedEvents] = useState([]);
@@ -351,6 +418,15 @@ const Exhibition = () => {
     }
   ];
 
+  // Handles 'Add to Calendar' click, triggers download of .ics file
+  function handleAddToCalendar(event) {
+    const ics = generateICS(event);
+    // filename should be normal-ish, e.g., 'Urban_Mosaic_26.06.ics'
+    const safeTitle =
+      event.title.replace(/[^a-zA-Z0-9]/g, '_').slice(0, 40) || "Urban_Mosaic";
+    downloadICS(`${safeTitle}_${event.date}.ics`, ics);
+  }
+
   return (
     <div className="bg-luxury-black min-h-screen selection:bg-luxury-gold/30 font-sans text-luxury-cream">
       <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/90 backdrop-blur-md py-4 md:py-6 border-b border-white/5">
@@ -448,7 +524,13 @@ const Exhibition = () => {
                     {event.details}
                   </p>
                 </div>
-                <button className="text-[8px] md:text-[10px] uppercase tracking-widest text-luxury-gold/50 hover:text-luxury-gold transition-colors mt-2 md:mt-0" tabIndex={-1}>
+                <button 
+                  className="text-[8px] md:text-[10px] uppercase tracking-widest text-luxury-gold/50 hover:text-luxury-gold transition-colors mt-2 md:mt-0"
+                  tabIndex={0}
+                  onClick={() => handleAddToCalendar(event)}
+                  type="button"
+                  aria-label={`Add ${event.title} to Calendar`}
+                >
                   Add to Calendar
                 </button>
               </div>
