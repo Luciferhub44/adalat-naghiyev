@@ -16,7 +16,7 @@ const mosaicEvents = [
   },
   { 
     date: '04.07', 
-    time: '00:00',
+    time: '10:00',
     title: 'Urban Mosaic: City Run with FLEK Running Club', 
     pl: 'Wydarzenie łączące sztukę i ruch. Spotkanie rozpocznie się od oprowadzania po wystawie, po czym wyruszymy na wspólny bieg ulicami Poznania zakończony integracją.', 
     en: 'An event bridging art and movement. The program begins with a guided exhibition tour, followed by a collective city run through Poznań and a social wrap-up.', 
@@ -42,7 +42,7 @@ const mosaicEvents = [
     date: '25.07', 
     time: '13:00',
     title: 'Urban Mosaic: Documentary Screening & Exhibition', 
-    pl: 'Pokaz filmu „Roots & Resonance” (BIG studio, reż. Oluwapelumi Osewa) połączony z rozmową z twórcami w Bibliotece Wielkopolskiej, a następnie wizyta w przestrzeni Mothrland na wystawie malarstwa „Prerequisite” autorstwa Easyblack (format Open Studio).', 
+    pl: 'Pokaz filmu „Roots & Resonance” (BIG studio, reż. Oluwapelumi Osewa) połączony z rozmową z twórcami w Bibliotece Wielkopolskiej, a następnie wizyta w przestrzeni Mothrland na wystawie malarstwa „Prerequisite” autorstwa Easyblack.', 
     en: 'A special screening of the documentary "Roots & Resonance" (BIG studio, dir. Oluwapelumi Osewa) followed by an artist talk, concluding with a visit to the Mothrland art space for the open studio exhibition "Prerequisite" by Easyblack.', 
     details: 'Wstęp wolny / Free admission' 
   },
