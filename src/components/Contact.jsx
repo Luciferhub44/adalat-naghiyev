@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Instagram, Award } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm('xjgdozao');
 
   return (
     <section id="contact" className="py-32 px-6">
@@ -49,7 +50,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="bg-white/5 p-8 md:p-16 border border-luxury-cream/10"
           >
-            {formSubmitted ? (
+            {state.succeeded ? (
               <div className="h-full flex flex-col items-center justify-center text-center space-y-6 py-12">
                 <div className="w-20 h-20 border border-luxury-gold rounded-full flex items-center justify-center text-luxury-gold mb-4">
                   <motion.div
@@ -62,63 +63,79 @@ const Contact = () => {
                 </div>
                 <h3 className="font-serif text-3xl">Inquiry Received</h3>
                 <p className="text-luxury-cream/50 max-w-xs">Thank you for reaching out. I will review your project details and get back to you within 48 hours.</p>
-                <button 
-                  onClick={() => setFormSubmitted(false)}
-                  className="text-luxury-gold text-[10px] uppercase tracking-[0.2em] pt-4"
-                >
-                  Send Another Message
-                </button>
+                {/* If you want a "Send another" button, you can reset by refreshing or use Formspree reset; not included here per default useForm behaviors */}
               </div>
             ) : (
-              <div className="space-y-8">
+              <form className="space-y-8" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                     <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1">Full Name</label>
-                     <input 
-                       type="text" 
-                       className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold transition-colors duration-300" 
-                       placeholder="Julianne V."
-                     />
+                    <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1" htmlFor="full-name">Full Name</label>
+                    <input
+                      id="full-name"
+                      name="full-name"
+                      type="text"
+                      className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold transition-colors duration-300"
+                      placeholder="Julianne V."
+                      required
+                    />
+                    <ValidationError field="full-name" errors={state.errors} />
                   </div>
                   <div className="space-y-2">
-                     <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1">Email Address</label>
-                     <input 
-                       type="email" 
-                       className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold transition-colors duration-300" 
-                       placeholder="hello@company.com"
-                     />
+                    <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1" htmlFor="email">Email Address</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold transition-colors duration-300"
+                      placeholder="hello@company.com"
+                      required
+                    />
+                    <ValidationError field="email" errors={state.errors} />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                   <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1">Project Category</label>
-                   <select className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold appearance-none transition-colors duration-300">
-                      <option className="bg-luxury-black">Select Category</option>
-                      <option className="bg-luxury-black">Portrait and Artist Session</option>
-                      <option className="bg-luxury-black">Couple or Engagement Session</option>
-                      <option className="bg-luxury-black">Concert and Event Documentation</option>
-                      <option className="bg-luxury-black">Brand and Commercial Project</option>
-                      <option className="bg-luxury-black">Real Estate or Interior Space</option>
-                      <option className="bg-luxury-black">Other Custom Project</option>
-                   </select>
+                  <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1" htmlFor="category">Project Category</label>
+                  <select
+                    id="category"
+                    name="category"
+                    className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold appearance-none transition-colors duration-300"
+                    required
+                    defaultValue=""
+                  >
+                    <option value="" disabled className="bg-luxury-black">Select Category</option>
+                    <option className="bg-luxury-black">Portrait and Artist Session</option>
+                    <option className="bg-luxury-black">Couple or Engagement Session</option>
+                    <option className="bg-luxury-black">Concert and Event Documentation</option>
+                    <option className="bg-luxury-black">Brand and Commercial Project</option>
+                    <option className="bg-luxury-black">Real Estate or Interior Space</option>
+                    <option className="bg-luxury-black">Other Custom Project</option>
+                  </select>
+                  <ValidationError field="category" errors={state.errors} />
                 </div>
 
                 <div className="space-y-2">
-                   <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1">Your Narrative</label>
-                   <textarea 
-                     rows="4"
-                     className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold transition-colors duration-300 resize-none" 
-                     placeholder="Tell me about your vision..."
-                   ></textarea>
+                  <label className="text-[9px] uppercase tracking-widest text-luxury-cream/40 ml-1" htmlFor="message">Your Narrative</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    className="w-full bg-white/5 border-b border-luxury-cream/20 py-4 px-2 focus:outline-none focus:border-luxury-gold transition-colors duration-300 resize-none"
+                    placeholder="Tell me about your vision..."
+                    required
+                  ></textarea>
+                  <ValidationError field="message" errors={state.errors} />
                 </div>
 
-                <button 
-                  onClick={() => setFormSubmitted(true)}
+                <button
+                  type="submit"
+                  disabled={state.submitting}
                   className="w-full py-6 mt-4 bg-luxury-cream text-luxury-black uppercase text-[10px] tracking-[0.4em] font-bold hover:bg-luxury-gold transition-colors duration-500"
                 >
-                  Send Inquiry
+                  {state.submitting ? 'Sending...' : 'Send Inquiry'}
                 </button>
-              </div>
+                <ValidationError errors={state.errors} />
+              </form>
             )}
           </motion.div>
         </div>

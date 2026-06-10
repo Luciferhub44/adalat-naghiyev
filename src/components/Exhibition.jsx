@@ -1,7 +1,233 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ArrowRight, Instagram, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ArrowRight, Instagram } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useForm, ValidationError } from '@formspree/react';
+
+// Urban Mosaic schedule for use in both schedule and the signup form
+const mosaicEvents = [
+  { 
+    date: '26.06', 
+    time: '17:00',
+    title: 'Urban Mosaic: Exhibition Opening & Afterparty', 
+    pl: 'Inauguracja projektu oraz premierowy wernisaż wystawy fotograficznej „URBAN MOSAIC”. Po części oficjalnej zapraszamy na muzyczne afterparty w swobodnej atmosferze.', 
+    en: 'The official launch and premier opening of the "URBAN MOSAIC" photography exhibition. Following the reception, join us for a relaxed musical afterparty.', 
+    details: 'Wstęp wolny / Free admission' 
+  },
+  { 
+    date: '04.07', 
+    time: '00:00',
+    title: 'Urban Mosaic: City Run with FLEK Running Club', 
+    pl: 'Wydarzenie łączące sztukę i ruch. Spotkanie rozpocznie się od oprowadzania po wystawie, po czym wyruszymy na wspólny bieg ulicami Poznania zakończony integracją.', 
+    en: 'An event bridging art and movement. The program begins with a guided exhibition tour, followed by a collective city run through Poznań and a social wrap-up.', 
+    details: 'Zapisy (limit miejsc) / Registration required' 
+  },
+  { 
+    date: '18.07', 
+    time: '12:00',
+    title: 'Urban Mosaic: Papercraft Workshop by Aimable Mugabo', 
+    pl: 'Kolektywne warsztaty upcyclingowe we współpracy z Harmonic Ventures. Uczestnicy stworzą unikalne papierowe formy przestrzenne z materiałów z odzysku.', 
+    en: 'A collaborative upcycling workshop partnership with Harmonic Ventures. Participants will transform recycled materials into unique paper sculptures.', 
+    details: 'Zapisy (limit miejsc) / Registration required (limited capacity)' 
+  },
+  { 
+    date: '23.07', 
+    time: '17:00',
+    title: 'Urban Mosaic: Gallery & Photo Walk + Darkroom Experience', 
+    pl: 'Kuratowany spacer fotograficzny oraz przegląd galerii sztuki współczesnej z Agatą Rodriguez, zwieńczony pokazem tradycyjnego procesu wywoływania odbitek w ciemni Darii Bielinkov.', 
+    en: 'A curated contemporary art gallery tour and photo walk led by Agata Rodriguez, concluding with a live, traditional analog darkroom print demonstration at Daria Bielinkov\'s studio.', 
+    details: 'Zapisy (limit miejsc) / Registration required (limited capacity)' 
+  },
+  { 
+    date: '25.07', 
+    time: '13:00',
+    title: 'Urban Mosaic: Documentary Screening & Exhibition', 
+    pl: 'Pokaz filmu „Roots & Resonance” (BIG studio, reż. Oluwapelumi Osewa) połączony z rozmową z twórcami w Bibliotece Wielkopolskiej, a następnie wizyta w przestrzeni Mothrland na wystawie malarstwa „Prerequisite” autorstwa Easyblack (format Open Studio).', 
+    en: 'A special screening of the documentary "Roots & Resonance" (BIG studio, dir. Oluwapelumi Osewa) followed by an artist talk, concluding with a visit to the Mothrland art space for the open studio exhibition "Prerequisite" by Easyblack.', 
+    details: 'Wstęp wolny / Free admission' 
+  },
+  { 
+    date: '31.07', 
+    time: '17:00',
+    title: 'Urban Mosaic: Artist Talk & Finissage', 
+    pl: 'Finisażowe podsumowanie festiwalu. Kameralne spotkanie z autorem Adalatem Naghiyevem, otwarta dyskusja oraz wspólne, uroczyste zamknięcie przestrzeni wystawowej.', 
+    en: 'The festival finissage and closing reception. An intimate gathering featuring an open dialogue and the collective closing of the exhibition space.', 
+    details: 'Wstęp wolny / Free admission' 
+  },
+];
+
+// Signup Form for Urban Mosaic Events
+function EventSignupForm() {
+  const [selectedEvents, setSelectedEvents] = useState([]);
+  const [personalDetails, setPersonalDetails] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [showSummary, setShowSummary] = useState(false);
+
+  // Using formspree
+  const [state, handleSubmit] = useForm('xjgdozao');
+
+  // Compose plain text summary of signup
+  const summaryDetails = (
+    <div className="space-y-2 text-center mb-6">
+      <p><span className="font-serif text-xl md:text-2xl">Thank you for signing up!</span></p>
+      <p>
+        <b>Name:</b> {personalDetails.name || "-"}<br/>
+        <b>Email:</b> {personalDetails.email || "-"}
+      </p>
+      <div>
+        <b>Events Selected:</b>
+        <ul className="list-disc list-inside text-luxury-gold pt-2">
+          {selectedEvents.length === 0 ?
+            <li className="text-luxury-cream/60">No events selected</li>
+           : 
+            mosaicEvents.filter((_, i) => selectedEvents.includes(i))
+              .map(ev => (
+                <li key={ev.title}>
+                  <b>{ev.date} {ev.time}</b>: {ev.title}
+                </li>
+              ))
+          }
+        </ul>
+      </div>
+      {personalDetails.message && (
+        <div className="pt-2 opacity-80 text-sm italic">
+          <b>Your message:</b> <br/>{personalDetails.message}
+        </div>
+      )}
+      <div className="pt-5">
+        <span className="text-luxury-gold block">A confirmation email will be sent soon.</span>
+      </div>
+    </div>
+  );
+
+  // On form fields change
+  const handleChangeDetails = e => {
+    const {name, value} = e.target;
+    setPersonalDetails(details => ({...details, [name]: value}));
+  };
+
+  // On checkboxes change
+  const handleEventsChange = e => {
+    const idx = parseInt(e.target.value, 10);
+    setSelectedEvents(evts =>
+      e.target.checked ? [...evts, idx] : evts.filter(i => i !== idx)
+    );
+  };
+
+  // Enhance handleSubmit to also show the summary
+  const wrappedHandleSubmit = async (e) => {
+    e.preventDefault();
+
+    // * Generate text for formspree about events
+    const selectedEventDescriptions = selectedEvents.map(
+      i => `[${mosaicEvents[i].date} ${mosaicEvents[i].time}] ${mosaicEvents[i].title}`
+    ).join('; ');
+    // use proxy name so formspree receives events choice!
+    const eventProxy = document.createElement("input");
+    eventProxy.type = "hidden";
+    eventProxy.name = "Selected Events";
+    eventProxy.value = selectedEventDescriptions;
+    e.target.appendChild(eventProxy);
+
+    await handleSubmit(e);
+    e.target.removeChild(eventProxy);
+    setShowSummary(true);
+  };
+
+  if (state.succeeded || showSummary) {
+    // Show summary & "thanks"
+    return (
+      <div className="max-w-xl mx-auto my-10 p-8 md:p-12 bg-luxury-black/80 border border-luxury-gold/30 rounded-lg shadow-xl">
+        {summaryDetails}
+      </div>
+    );
+  }
+
+  // Show form
+  return (
+    <form 
+      onSubmit={wrappedHandleSubmit}
+      className="max-w-xl mx-auto mt-16 mb-20 p-8 md:p-12 bg-luxury-black/80 border border-luxury-gold/30 rounded-lg shadow-xl space-y-8"
+    >
+      <h2 className="font-serif text-2xl md:text-3xl text-center mb-6">Sign up for Urban Mosaic Events</h2>
+      <div>
+        <label className="block text-xs font-bold mb-1" htmlFor="name">Name*</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          autoComplete="name"
+          required
+          value={personalDetails.name}
+          onChange={handleChangeDetails}
+          className="w-full px-4 py-2 rounded bg-white/10 border border-luxury-gold/30 focus:border-luxury-gold outline-none text-luxury-cream transition-colors text-base"
+        />
+        <ValidationError field="name" errors={state.errors} />
+      </div>
+      <div>
+        <label className="block text-xs font-bold mb-1" htmlFor="email">Email*</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          autoComplete="email"
+          required
+          value={personalDetails.email}
+          onChange={handleChangeDetails}
+          className="w-full px-4 py-2 rounded bg-white/10 border border-luxury-gold/30 focus:border-luxury-gold outline-none text-luxury-cream transition-colors text-base"
+        />
+        <ValidationError field="email" errors={state.errors} />
+      </div>
+      <div>
+        <label className="block text-xs font-bold mb-2 mb-1">Which events would you like to attend?</label>
+        <div className="space-y-3">
+          {mosaicEvents.map((ev, i) => (
+            <label key={ev.title} className="flex items-center space-x-2 cursor-pointer group">
+              <input 
+                type="checkbox" 
+                name="events[]" 
+                value={i} 
+                checked={selectedEvents.includes(i)}
+                onChange={handleEventsChange}
+                className="accent-luxury-gold h-4 w-4 border rounded focus:ring-2 focus:ring-luxury-gold"
+              />
+              <span className="text-luxury-cream group-hover:text-luxury-gold transition">
+                <span className="font-bold text-luxury-gold">{ev.date} {ev.time}</span> {ev.title}
+              </span>
+            </label>
+          ))}
+        </div>
+        <ValidationError field="events" errors={state.errors} />
+      </div>
+      <div>
+        <label className="block text-xs font-bold mb-1" htmlFor="message">
+          Anything you'd like us to know? (Optional)
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={3}
+          value={personalDetails.message}
+          onChange={handleChangeDetails}
+          className="w-full px-4 py-2 rounded bg-white/10 border border-luxury-gold/30 focus:border-luxury-gold outline-none text-luxury-cream transition-colors text-base"
+        />
+        <ValidationError field="message" errors={state.errors} />
+      </div>
+      <div className="text-center">
+        <button
+          type="submit"
+          disabled={state.submitting}
+          className="inline-block px-8 py-3 rounded bg-luxury-gold text-luxury-black font-bold uppercase text-xs tracking-widest hover:bg-luxury-cream transition"
+        >
+          {state.submitting ? 'Submitting...' : 'Submit & Sign Up'}
+        </button>
+      </div>
+    </form>
+  );
+}
 
 const ParticipantCard = ({ person, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -197,57 +423,21 @@ const Exhibition = () => {
         </div>
       </section>
 
+      {/* Event Signup */}
+      <section className="py-16 md:py-24 px-4 md:px-6">
+        <EventSignupForm />
+      </section>
+
       {/* Schedule */}
       <section className="py-20 md:py-32 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="font-serif text-4xl md:text-5xl mb-12 md:mb-16">PROGRAM WYDARZEŃ / EVENT CALENDAR</h2>
           <div className="space-y-px bg-white/5 border border-white/5">
-            {[
-              { 
-                date: '26.06', 
-                title: 'Urban Mosaic: Exhibition Opening & Afterparty', 
-                pl: 'Inauguracja projektu oraz premierowy wernisaż wystawy fotograficznej „URBAN MOSAIC”. Po części oficjalnej zapraszamy na muzyczne afterparty w swobodnej atmosferze.', 
-                en: 'The official launch and premier opening of the "URBAN MOSAIC" photography exhibition. Following the reception, join us for a relaxed musical afterparty.', 
-                details: 'TBA | Wstęp wolny / Free admission' 
-              },
-              { 
-                date: '04.07', 
-                title: 'Urban Mosaic: City Run with FLEK Running Club', 
-                pl: 'Wydarzenie łączące sztukę i ruch. Spotkanie rozpocznie się od oprowadzania po wystawie, po czym wyruszymy na wspólny bieg ulicami Poznania zakończony integracją.', 
-                en: 'An event bridging art and movement. The program begins with a guided exhibition tour, followed by a collective city run through Poznań and a social wrap-up.', 
-                details: 'TBA | Zapisy (limit miejsc) / Registration required' 
-              },
-              { 
-                date: '18.07', 
-                title: 'Urban Mosaic: Papercraft Workshop by Aimable Mugabo', 
-                pl: 'Kolektywne warsztaty upcyclingowe we współpracy z Harmonic Ventures. Uczestnicy stworzą unikalne papierowe formy przestrzenne z materiałów z odzysku.', 
-                en: 'A collaborative upcycling workshop partnership with Harmonic Ventures. Participants will transform recycled materials into unique paper sculptures.', 
-                details: 'TBA | Zapisy (limit miejsc) / Registration required (limited capacity)' 
-              },
-              { 
-                date: '23.07', 
-                title: 'Urban Mosaic: Gallery & Photo Walk + Darkroom Experience', 
-                pl: 'Kuratowany spacer fotograficzny oraz przegląd galerii sztuki współczesnej z Agatą Rodriguez, zwieńczony pokazem tradycyjnego procesu wywoływania odbitek w ciemni Darii Bielinkov.', 
-                en: 'A curated contemporary art gallery tour and photo walk led by Agata Rodriguez, concluding with a live, traditional analog darkroom print demonstration at Daria Bielinkov\'s studio.', 
-                details: 'TBA | Zapisy (limit miejsc) / Registration required (limited capacity)' 
-              },
-              { 
-                date: '25.07', 
-                title: 'Urban Mosaic: Documentary Screening & Exhibition', 
-                pl: 'Pokaz filmu „Roots & Resonance” (BIG studio, reż. Oluwapelumi Osewa) połączony z rozmową z twórcami w Bibliotece Wielkopolskiej, a następnie wizyta w przestrzeni Mothrland na wystawie malarstwa „Prerequisite” autorstwa Easyblack (format Open Studio).', 
-                en: 'A special screening of the documentary "Roots & Resonance" (BIG studio, dir. Oluwapelumi Osewa) followed by an artist talk, concluding with a visit to the Mothrland art space for the open studio exhibition "Prerequisite" by Easyblack.', 
-                details: 'TBA | Wstęp wolny / Free admission' 
-              },
-              { 
-                date: '31.07', 
-                title: 'Urban Mosaic: Artist Talk & Finissage', 
-                pl: 'Finisażowe podsumowanie festiwalu. Kameralne spotkanie z autorem Adalatem Naghiyevem, otwarta dyskusja oraz wspólne, uroczyste zamknięcie przestrzeni wystawowej.', 
-                en: 'The festival finissage and closing reception. An intimate gathering featuring an open dialogue and the collective closing of the exhibition space.', 
-                details: 'TBA | Wstęp wolny / Free admission' 
-              },
-            ].map((event) => (
+            {mosaicEvents.map((event) => (
               <div key={event.title} className="bg-luxury-black p-6 md:p-12 flex flex-col md:flex-row gap-4 md:gap-8 items-start md:items-center hover:bg-white/[0.03] transition-all">
-                <p className="font-serif text-2xl md:text-3xl text-luxury-gold min-w-[100px] md:min-w-[120px]">{event.date}</p>
+                <p className="font-serif text-2xl md:text-3xl text-luxury-gold min-w-[140px] md:min-w-[170px]">
+                  {event.date} <span className="ml-2 text-base md:text-lg text-luxury-cream/60">{event.time}</span>
+                </p>
                 <div className="flex-grow space-y-3">
                   <h4 className="text-base md:text-lg uppercase tracking-widest">{event.title}</h4>
                   <div className="text-luxury-cream/60 text-xs md:text-sm space-y-2 italic">
@@ -258,7 +448,7 @@ const Exhibition = () => {
                     {event.details}
                   </p>
                 </div>
-                <button className="text-[8px] md:text-[10px] uppercase tracking-widest text-luxury-gold/50 hover:text-luxury-gold transition-colors mt-2 md:mt-0">
+                <button className="text-[8px] md:text-[10px] uppercase tracking-widest text-luxury-gold/50 hover:text-luxury-gold transition-colors mt-2 md:mt-0" tabIndex={-1}>
                   Add to Calendar
                 </button>
               </div>
