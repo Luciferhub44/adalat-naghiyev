@@ -73,11 +73,7 @@ function generateICS(event) {
   const start = eventToJSDate(event.date, event.time);
   const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
 
-  function dateTimeStr(dt) {
-    // Format: YYYYMMDDTHHMMSS (UTC)
-    // Polish time is UTC+2 in July
-    // We'll output as UTC (Z) even if slightly off (for local import that's typical).
-    // But let's do local time (without Z) for easier import (for compatibility).
+  function dateTimeStr(dt) { 
     return (
       dt.getFullYear() +
       pad(dt.getMonth() + 1) +
@@ -464,9 +460,10 @@ const Exhibition = () => {
       <section className="py-16 md:py-20 px-4 md:px-6 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
            <div className="relative aspect-[3/4] bg-luxury-black border border-white/10 overflow-hidden group">
+              {/* Poster with NO zoom effect and original size preserved */}
               <img 
-                src="/Mosaic/Um_Poster.png" 
-                className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
+                src="/Mosaic/Poster.png" 
+                className="w-full h-full object-contain"
                 alt="Urban Mosaic Exhibition Poster"
               />
               <div className="absolute inset-0 bg-luxury-black/10 group-hover:bg-transparent transition-colors duration-500" />
@@ -482,8 +479,8 @@ const Exhibition = () => {
                  <p className="text-[8px] md:text-[9px] uppercase tracking-widest opacity-40">Gallery Venue</p>
                </div>
                <div>
-                 <p className="text-luxury-gold text-xl md:text-2xl font-serif">2026</p>
-                 <p className="text-[8px] md:text-[9px] uppercase tracking-widest opacity-40">Exhibition Year</p>
+                 <p className="text-luxury-gold text-xl md:text-2xl font-serif">ul. Prusa 3, <br/>Poznań, Poland</p>
+                 <p className="text-[8px] md:text-[9px] uppercase tracking-widest opacity-40">Location</p>
                </div>
              </div>
            </div>
