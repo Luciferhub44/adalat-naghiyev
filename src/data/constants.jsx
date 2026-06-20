@@ -14,15 +14,18 @@ export const PORTFOLIO_ITEMS = [
   // Portraiture — Ashley (B&W Night Film)
   { id: 7,  category: 'Portraiture', title: 'Cinematic Low-Light Portraits', image: '/Featured/Portriats/F2650016.JPG',    size: 'large',  desc: 'A nighttime, direct-flash b&w street portrait session captured on 35mm film, emphasizing mood and cinematic narrative.' },
   { id: 8,  category: 'Portraiture', title: 'Cinematic Low-Light Portraits', image: '/Featured/Portriats/F2650005.JPG',    size: 'medium', desc: 'A nighttime, direct-flash b&w street portrait session captured on 35mm film, emphasizing mood and cinematic narrative.' },
-  // Editorial
-  { id: 9,  category: 'Editorial',         title: 'Julia Stachura',    image: '/Featured/Editorial/_MG_4196.jpg',  size: 'large',  desc: 'Deep studio tones and deliberate stillness. A collaboration built around character, not performance.' },
-  { id: 10, category: 'Editorial',         title: 'Character Study',   image: '/Featured/Editorial/_MG_4231.jpg',  size: 'large',  desc: 'Translating identity into imagery through deep studio work.' },
-  { id: 11, category: 'Editorial',         title: 'Spatial Dynamics',  image: '/Featured/Editorial/_MG_7340.jpg',  size: 'medium', desc: 'Exploring the relationship between form and architectural space.' },
-  { id: 12, category: 'Editorial',         title: 'MOMA Collab',       image: '/Featured/Editorial/_MG_7372.jpg',  size: 'large',  desc: 'Museum-grade whitespace and deliberate composition.' },
-  { id: 13, category: 'Editorial',         title: 'Texture & Light',   image: '/Featured/Editorial/_MG_8384.jpg',  size: 'medium', desc: 'Close-ups emphasizing material and luminosity.' },
-  { id: 14, category: 'Editorial',         title: 'The Subject',       image: '/Featured/Editorial/_MG_8448.jpg',  size: 'large',  desc: 'Intimate portraiture focused on the gaze.' },
-  { id: 15, category: 'Editorial',         title: 'Motion Study',      image: '/Featured/Editorial/IMG_6307.JPG',  size: 'medium', desc: 'Capturing movement and fluidity in a static frame.' },
-  { id: 16, category: 'Editorial',         title: 'Color Theory',      image: '/Featured/Editorial/IMG_6308.JPG',  size: 'small',  desc: 'Vibrant contrasts and saturated tones in studio.' },
+  // Editorial — Outdoor Location Shoot
+  { id: 9,  category: 'Editorial',         title: 'Cinematic Portraiture',       image: '/Featured/Editorial/IMG_6307.JPG',  size: 'large',  desc: 'An outdoor fashion and portrait session captured on 35mm film, focusing on warm, natural tones and classic styling.' },
+  { id: 10, category: 'Editorial',         title: 'Cinematic Portraiture',       image: '/Featured/Editorial/IMG_6308.JPG',  size: 'medium', desc: 'An outdoor fashion and portrait session captured on 35mm film, focusing on warm, natural tones and classic styling.' },
+  // Editorial — TQ (Abandoned Library)
+  { id: 11, category: 'Editorial',         title: 'Editorial Lookbook',          image: '/Featured/Editorial/_MG_4196.jpg',  size: 'large',  desc: 'A styled brand-focused session blending high-end sportswear styling with a raw, industrial backdrop, utilizing dynamic off-camera flash and natural lighting.' },
+  { id: 12, category: 'Editorial',         title: 'Editorial Lookbook',          image: '/Featured/Editorial/_MG_4231.jpg',  size: 'medium', desc: 'A styled brand-focused session blending high-end sportswear styling with a raw, industrial backdrop, utilizing dynamic off-camera flash and natural lighting.' },
+  // Editorial — "Feeling Blue" Creative Concept
+  { id: 13, category: 'Editorial',         title: 'Conceptual Fashion Editorial', image: '/Featured/Editorial/_MG_7340.jpg',  size: 'medium', desc: 'A highly directed creative campaign utilizing saturated, atmospheric lighting and deliberate motion blur to evoke mood and emotional depth.' },
+  { id: 14, category: 'Editorial',         title: 'Conceptual Fashion Editorial', image: '/Featured/Editorial/_MG_7372.jpg',  size: 'large',  desc: 'A highly directed creative campaign utilizing saturated, atmospheric lighting and deliberate motion blur to evoke mood and emotional depth.' },
+  // Editorial — Julia Stachura (Graduation/Artistic Studio)
+  { id: 15, category: 'Editorial',         title: 'Fine Art Studio Portraiture', image: '/Featured/Editorial/_MG_8448.jpg',  size: 'large',  desc: 'A stylized studio session blending professional achievement lookbooks with an avant-garde artistic aesthetic.' },
+  { id: 16, category: 'Editorial',         title: 'Fine Art Studio Portraiture', image: '/Featured/Editorial/_MG_8384.jpg',  size: 'medium', desc: 'A stylized studio session blending professional achievement lookbooks with an avant-garde artistic aesthetic.' },
   // Commercial — Old Town Vintage
   { id: 17, category: 'Commercial',        title: 'Lifestyle Lookbook',           image: '/Featured/Commercial/000071.JPG',    size: 'large',  desc: 'A street-oriented brand campaign captured on 35mm film, showcasing apparel versatility across diverse style aesthetics for a curated vintage brand.' },
   { id: 18, category: 'Commercial',        title: 'Lifestyle Lookbook',           image: '/Featured/Commercial/000046.JPG',    size: 'medium', desc: 'A street-oriented brand campaign captured on 35mm film, showcasing apparel versatility across diverse style aesthetics for a curated vintage brand.' },
