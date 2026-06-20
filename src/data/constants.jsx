@@ -2,25 +2,51 @@ import React from 'react';
 import { Users, Music, Briefcase, Home } from 'lucide-react';
 
 export const PORTFOLIO_ITEMS = [
-  { id: 1, category: 'Portraiture', title: 'Julia Stachura', image: '/Featured/Editorial/1.jpg', size: 'large', desc: 'Deep studio tones and deliberate stillness. A collaboration built around character, not performance.' },
-  { id: 3, category: 'Commercial', title: 'PhilDBrand Show', image: '/Featured/Renaissance/1.jpg', size: 'medium', desc: 'Three floors. Rooftop golden hour. A collection that rewrote the archive and refused to explain itself.' },
-  { id: 6, category: 'Portraiture', title: 'Character Study', image: '/Featured/Editorial/2.jpg', size: 'large', desc: 'Translating identity into imagery through deep studio work.' },
-  { id: 8, category: 'Commercial', title: 'Rooftop Series', image: '/Featured/Renaissance/2.jpg', size: 'medium', desc: 'Capturing the movement and energy of high fashion.' },
-  { id: 10, category: 'Portraiture', title: 'MOMA Collab', image: '/Featured/Editorial/4.jpg', size: 'large', desc: 'Museum-grade whitespace and deliberate composition.' },
-  { id: 13, category: 'Portraiture', title: 'Spatial Dynamics', image: '/Featured/Editorial/3.jpg', size: 'medium', desc: 'Exploring the relationship between form and architectural space.' },
-  { id: 14, category: 'Portraiture', title: 'Color Theory', image: '/Featured/Editorial/5.jpg', size: 'small', desc: 'Vibrant contrasts and saturated tones in studio.' },
-  { id: 15, category: 'Portraiture', title: 'Motion Study', image: '/Featured/Editorial/6.jpg', size: 'large', desc: 'Capturing movement and fluidity in a static frame.' },
-  { id: 16, category: 'Portraiture', title: 'Texture & Light', image: '/Featured/Editorial/7.jpg', size: 'medium', desc: 'Close-ups emphasizing material and lighting.' },
-  { id: 17, category: 'Portraiture', title: 'The Subject', image: '/Featured/Editorial/8.jpg', size: 'large', desc: 'Intimate portraiture focused on the gaze.' },
-  { id: 18, category: 'Commercial', title: 'Backstage Details', image: '/Featured/Renaissance/3.jpg', size: 'large', desc: 'The quiet moments before the rush of the runway.' },
-  { id: 19, category: 'Commercial', title: 'Renaissance Line', image: '/Featured/Renaissance/4.jpg', size: 'medium', desc: 'Fluid fabrics and structural silhouettes.' },
-  { id: 20, category: 'Commercial', title: 'The Walk', image: '/Featured/Renaissance/5.jpg', size: 'large', desc: 'A study in pacing and presentation.' },
-  { id: 21, category: 'Commercial', title: 'Designer Portrait', image: '/Featured/Renaissance/6.jpg', size: 'small', desc: 'The creative mind behind the collection.' },
-  { id: 22, category: 'Commercial', title: 'Designer Portrait', image: '/Featured/Renaissance/8.jpg', size: 'medium', desc: 'The creative mind behind the collection.' },
-  { id: 22, category: 'Commercial', title: 'Final Look', image: '/Featured/Renaissance/7.jpg', size: 'medium', desc: 'The culmination of the runway show.' },
+  // Portraiture — Hanna (Studio Portrait)
+  { id: 1,  category: 'Portraiture', title: 'Clean Studio Portraiture',      image: '/Featured/Portriats/_MG_4188.jpg',   size: 'large',  desc: 'A minimalist corporate and lifestyle portrait session focusing on high-key studio lighting and natural posing.' },
+  { id: 2,  category: 'Portraiture', title: 'Clean Studio Portraiture',      image: '/Featured/Portriats/_MG_4230.JPG',   size: 'medium', desc: 'A minimalist corporate and lifestyle portrait session focusing on high-key studio lighting and natural posing.' },
+  // Portraiture — Ramat (Actress Headshots)
+  { id: 3,  category: 'Portraiture', title: 'Creative Industry Headshots',   image: '/Featured/Portriats/_MG_6920-2.jpg', size: 'large',  desc: 'Professional portfolio headshots for talent and performance artists, tailored to highlight character expression.' },
+  { id: 4,  category: 'Portraiture', title: 'Creative Industry Headshots',   image: '/Featured/Portriats/_MG_7014-2.jpg', size: 'medium', desc: 'Professional portfolio headshots for talent and performance artists, tailored to highlight character expression.' },
+  // Portraiture — Magdalena (Outdoor Film)
+  { id: 5,  category: 'Portraiture', title: 'Editorial Outdoor Portraiture', image: '/Featured/Portriats/000040.jpg',      size: 'medium', desc: 'A daylight location session utilizing 35mm analog film, blending architectural backdrops with classic styling.' },
+  { id: 6,  category: 'Portraiture', title: 'Editorial Outdoor Portraiture', image: '/Featured/Portriats/000044.jpg',      size: 'large',  desc: 'A daylight location session utilizing 35mm analog film, blending architectural backdrops with classic styling.' },
+  // Portraiture — Ashley (B&W Night Film)
+  { id: 7,  category: 'Portraiture', title: 'Cinematic Low-Light Portraits', image: '/Featured/Portriats/F2650016.JPG',    size: 'large',  desc: 'A nighttime, direct-flash b&w street portrait session captured on 35mm film, emphasizing mood and cinematic narrative.' },
+  { id: 8,  category: 'Portraiture', title: 'Cinematic Low-Light Portraits', image: '/Featured/Portriats/F2650005.JPG',    size: 'medium', desc: 'A nighttime, direct-flash b&w street portrait session captured on 35mm film, emphasizing mood and cinematic narrative.' },
+  // Editorial
+  { id: 9,  category: 'Editorial',         title: 'Julia Stachura',    image: '/Featured/Editorial/_MG_4196.jpg',  size: 'large',  desc: 'Deep studio tones and deliberate stillness. A collaboration built around character, not performance.' },
+  { id: 10, category: 'Editorial',         title: 'Character Study',   image: '/Featured/Editorial/_MG_4231.jpg',  size: 'large',  desc: 'Translating identity into imagery through deep studio work.' },
+  { id: 11, category: 'Editorial',         title: 'Spatial Dynamics',  image: '/Featured/Editorial/_MG_7340.jpg',  size: 'medium', desc: 'Exploring the relationship between form and architectural space.' },
+  { id: 12, category: 'Editorial',         title: 'MOMA Collab',       image: '/Featured/Editorial/_MG_7372.jpg',  size: 'large',  desc: 'Museum-grade whitespace and deliberate composition.' },
+  { id: 13, category: 'Editorial',         title: 'Texture & Light',   image: '/Featured/Editorial/_MG_8384.jpg',  size: 'medium', desc: 'Close-ups emphasizing material and luminosity.' },
+  { id: 14, category: 'Editorial',         title: 'The Subject',       image: '/Featured/Editorial/_MG_8448.jpg',  size: 'large',  desc: 'Intimate portraiture focused on the gaze.' },
+  { id: 15, category: 'Editorial',         title: 'Motion Study',      image: '/Featured/Editorial/IMG_6307.JPG',  size: 'medium', desc: 'Capturing movement and fluidity in a static frame.' },
+  { id: 16, category: 'Editorial',         title: 'Color Theory',      image: '/Featured/Editorial/IMG_6308.JPG',  size: 'small',  desc: 'Vibrant contrasts and saturated tones in studio.' },
+  // Commercial — Old Town Vintage
+  { id: 17, category: 'Commercial',        title: 'Lifestyle Lookbook',           image: '/Featured/Commercial/000071.JPG',    size: 'large',  desc: 'A street-oriented brand campaign captured on 35mm film, showcasing apparel versatility across diverse style aesthetics for a curated vintage brand.' },
+  { id: 18, category: 'Commercial',        title: 'Lifestyle Lookbook',           image: '/Featured/Commercial/000046.JPG',    size: 'medium', desc: 'A street-oriented brand campaign captured on 35mm film, showcasing apparel versatility across diverse style aesthetics for a curated vintage brand.' },
+  // Commercial — Wyrobnia Jewelry
+  { id: 19, category: 'Commercial',        title: 'Editorial Product Campaign',   image: '/Featured/Commercial/_MG_6293.jpg',  size: 'large',  desc: 'Detail-focused commercial imagery for an artisanal jewelry collection, balancing varied lighting techniques to emphasize raw textures and handcrafted materials.' },
+  { id: 20, category: 'Commercial',        title: 'Editorial Product Campaign',   image: '/Featured/Commercial/_MG_6471.jpg',  size: 'medium', desc: 'Detail-focused commercial imagery for an artisanal jewelry collection, balancing varied lighting techniques to emphasize raw textures and handcrafted materials.' },
+  // Commercial — Biblioteka Baku
+  { id: 21, category: 'Commercial',        title: 'Hospitality & Culinary Content', image: '/Featured/Commercial/IMG_0297.JPG', size: 'medium', desc: 'Commercial culinary and lifestyle photography highlighting guest interaction, and premium menu presentation for a multi-concept venue.' },
+  { id: 22, category: 'Commercial',        title: 'Hospitality & Culinary Content', image: '/Featured/Commercial/IMG_0312.JPG', size: 'large',  desc: 'Commercial culinary and lifestyle photography highlighting guest interaction, and premium menu presentation for a multi-concept venue.' },
+  // Commercial — Afro Sasa Brass
+  { id: 23, category: 'Commercial',        title: 'Sustainable Luxury Editorial', image: '/Featured/Commercial/_MG_0303.jpg',  size: 'large',  desc: 'An intentional outdoor lookbook session for an ethical jewelry brand, focusing on high-contrast lighting, product detail, and brand identity.' },
+  { id: 24, category: 'Commercial',        title: 'Sustainable Luxury Editorial', image: '/Featured/Commercial/_MG_0313.jpg',  size: 'medium', desc: 'An intentional outdoor lookbook session for an ethical jewelry brand, focusing on high-contrast lighting, product detail, and brand identity.' },
+  // Events & Concerts
+  { id: 25, category: 'Events & Concerts', title: 'Live Performance',  image: '/Featured/Events/_MG_1407.jpg',   size: 'large',  desc: 'Atmospheric coverage of live performance — movement, energy, and the decisive moment.' },
+  { id: 26, category: 'Events & Concerts', title: 'Live Performance',  image: '/Featured/Events/_MG_1468.jpg',   size: 'medium', desc: 'Atmospheric coverage of live performance — movement, energy, and the decisive moment.' },
+  { id: 27, category: 'Events & Concerts', title: 'Stage & Crowd',     image: '/Featured/Events/_MG_4826.JPG',   size: 'medium', desc: 'Wide environmental shots capturing the scale and atmosphere of the space.' },
+  { id: 28, category: 'Events & Concerts', title: 'Stage & Crowd',     image: '/Featured/Events/_MG_4840.JPG',   size: 'large',  desc: 'Wide environmental shots capturing the scale and atmosphere of the space.' },
+  { id: 29, category: 'Events & Concerts', title: 'Festival Frame',    image: '/Featured/Events/_MG_5294.JPG',   size: 'large',  desc: 'Decisive moments from a live festival set — unobtrusive and atmospheric.' },
+  { id: 30, category: 'Events & Concerts', title: 'Festival Frame',    image: '/Featured/Events/_MG_5328.JPG',   size: 'medium', desc: 'Decisive moments from a live festival set — unobtrusive and atmospheric.' },
+  { id: 31, category: 'Events & Concerts', title: 'Cultural Gathering', image: '/Featured/Events/_MG_5858.jpg',  size: 'medium', desc: 'Documentation of a cultural event — people, movement, and the real atmosphere of the space.' },
+  { id: 32, category: 'Events & Concerts', title: 'Cultural Gathering', image: '/Featured/Events/_MG_5896.jpg',  size: 'large',  desc: 'Documentation of a cultural event — people, movement, and the real atmosphere of the space.' },
 ];
 
-export const CATEGORIES = ['All', 'Portraiture', 'Concert & Event', 'Commercial', 'Interiors'];
+export const CATEGORIES = ['All', 'Portraiture', 'Editorial', 'Commercial', 'Events & Concerts'];
 
 export const SERVICES = [
   {

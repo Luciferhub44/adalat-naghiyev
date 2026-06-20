@@ -69,7 +69,7 @@ const Portfolio = ({ setSelectedItem }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.4 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
             >
               {folders.map((folder, i) => (
                 <motion.div
@@ -81,7 +81,7 @@ const Portfolio = ({ setSelectedItem }) => {
                   onClick={() => setActiveFolder(folder.name)}
                 >
                   {/* Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden mb-5 bg-white/5">
+                  <div className="relative aspect-[3/4] overflow-hidden mb-5 bg-white/5">
                     {folder.coverItem && (
                       <img
                         src={folder.coverItem.image}
