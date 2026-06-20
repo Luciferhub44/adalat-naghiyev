@@ -2,37 +2,61 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="py-24 px-6 border-t border-luxury-cream/10 relative overflow-hidden bg-luxury-black">
-      <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
-      <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-center gap-12">
-        <div>
-          <a href="/" className="block group">
-            <img 
-              src="/AN_Logo.png" 
-              alt="Adalat Naghiyev" 
-              className="h-12 md:h-16 opacity-80 group-hover:opacity-100 transition-all duration-500" 
+    <footer className="px-6 py-16 md:py-20 border-t border-white/10 bg-luxury-black">
+      <div className="max-w-7xl mx-auto">
+
+        {/* Top row */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mb-12 pb-12 border-b border-white/5">
+          <a href="/" aria-label="Adalat Naghiyev — home">
+            <img
+              src="/AN_Logo.png"
+              alt="Adalat Naghiyev"
+              className="h-10 md:h-12 opacity-70 hover:opacity-100 transition-opacity duration-500"
             />
           </a>
+
+          <nav className="flex flex-wrap gap-8">
+            {['#work', '#about', '#services', '#contact'].map((href) => (
+              <a
+                key={href}
+                href={href}
+                className="text-[9px] uppercase tracking-[0.35em] text-luxury-cream/35 hover:text-luxury-gold transition-colors duration-300"
+              >
+                {href.replace('#', '')}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex gap-6">
+            <a
+              href="https://www.instagram.com/adalatnaghiyev.art/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] uppercase tracking-[0.35em] text-luxury-cream/35 hover:text-luxury-gold transition-colors duration-300"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://www.youtube.com/@adalatnaghiyev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] uppercase tracking-[0.35em] text-luxury-cream/35 hover:text-luxury-gold transition-colors duration-300"
+            >
+              Youtube
+            </a>
+          </div>
         </div>
 
-        <div className="flex gap-12">
-          <a href="#work" className="text-[9px] uppercase tracking-widest text-luxury-cream/40 hover:text-luxury-cream transition-colors">Work</a>
-          <a href="#about" className="text-[9px] uppercase tracking-widest text-luxury-cream/40 hover:text-luxury-cream transition-colors">About</a>
-          <a href="#contact" className="text-[9px] uppercase tracking-widest text-luxury-cream/40 hover:text-luxury-cream transition-colors">Contact</a>
+        {/* Bottom row */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <p className="text-[8px] uppercase tracking-[0.3em] text-luxury-cream/20">
+            Currently exhibiting: Urban Mosaic — Biblioteka Wielkopolska im. Stanisława Barańczaka, Poznań, 2026.
+          </p>
+          <p className="text-[8px] uppercase tracking-[0.3em] text-luxury-cream/20 shrink-0">
+            © 2026 Adalat Naghiyev
+          </p>
         </div>
 
-        <div className="flex gap-8">
-          <a href="https://www.instagram.com/adalatnaghiyev.art/" className="text-luxury-cream/40 hover:text-luxury-gold transition-colors font-sans text-[10px] uppercase tracking-widest">Instagram</a>
-          <a href="https://www.youtube.com/@adalatnaghiyev" className="text-luxury-cream/40 hover:text-luxury-gold transition-colors font-sans text-[10px] uppercase tracking-widest">Youtube</a>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto text-center mt-12">
-        <p className="text-[8px] uppercase tracking-[0.3em] text-luxury-cream/20">
-          Currently exhibiting: Urban Mosaic — Biblioteka Wielkopolska im. Stanisława Barańczaka, Poznań, 2026.
-        </p>
-        <p className="text-[8px] uppercase tracking-[0.3em] text-luxury-cream/20 mt-4">
-          &copy; 2026 Adalat Naghiyev. All rights reserved.
-        </p>
       </div>
     </footer>
   );
