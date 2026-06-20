@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Music, Briefcase, Home } from 'lucide-react';
+import { Users, Music, Briefcase, Home } from 'lucide-react'; 
 
 export const PORTFOLIO_ITEMS = [
   // Portraiture — Hanna (Studio Portrait)
