@@ -3,17 +3,17 @@ import { Users, Music, Briefcase, Home } from 'lucide-react';
 
 export const PORTFOLIO_ITEMS = [
   // Portraiture — Hanna (Studio Portrait)
-  { id: 1,  category: 'Portraiture', title: 'Clean Studio Portraiture',      image: '/Featured/Portriats/_MG_4188.jpg',   size: 'large',  desc: 'A minimalist corporate and lifestyle portrait session focusing on high-key studio lighting and natural posing.' },
-  { id: 2,  category: 'Portraiture', title: 'Clean Studio Portraiture',      image: '/Featured/Portriats/_MG_4230.JPG',   size: 'medium', desc: 'A minimalist corporate and lifestyle portrait session focusing on high-key studio lighting and natural posing.' },
-  // Portraiture — Ramat (Actress Headshots)
-  { id: 3,  category: 'Portraiture', title: 'Creative Industry Headshots',   image: '/Featured/Portriats/_MG_6920-2.jpg', size: 'large',  desc: 'Professional portfolio headshots for talent and performance artists, tailored to highlight character expression.' },
-  { id: 4,  category: 'Portraiture', title: 'Creative Industry Headshots',   image: '/Featured/Portriats/_MG_7014-2.jpg', size: 'medium', desc: 'Professional portfolio headshots for talent and performance artists, tailored to highlight character expression.' },
+  { id: 1,  category: 'Portraiture', title: 'Clean Studio Portraiture',          image: '/Featured/Portriats/_MG_4188.jpg',   size: 'large',  desc: 'A minimalist corporate and lifestyle portrait session focusing on high-key studio lighting and natural posing.' },
+  { id: 2,  category: 'Portraiture', title: 'Clean Studio Portraiture',          image: '/Featured/Portriats/_MG_4230.jpg',   size: 'medium', desc: 'A minimalist corporate and lifestyle portrait session focusing on high-key studio lighting and natural posing.' },
+  // Portraiture — High-Contrast Studio
+  { id: 3,  category: 'Portraiture', title: 'Stylized Conceptual Portraiture',   image: '/Featured/Portriats/_MG_8657.jpg',   size: 'large',  desc: 'A dramatic, high-contrast studio session utilizing hard circular spotlighting to create bold, editorial-style shadows and a commanding human presence.' },
+  { id: 4,  category: 'Portraiture', title: 'Stylized Conceptual Portraiture',   image: '/Featured/Portriats/_MG_8692.jpg',   size: 'medium', desc: 'A dramatic, high-contrast studio session utilizing hard circular spotlighting to create bold, editorial-style shadows and a commanding human presence.' },
   // Portraiture — Magdalena (Outdoor Film)
-  { id: 5,  category: 'Portraiture', title: 'Editorial Outdoor Portraiture', image: '/Featured/Portriats/000040.jpg',      size: 'medium', desc: 'A daylight location session utilizing 35mm analog film, blending architectural backdrops with classic styling.' },
-  { id: 6,  category: 'Portraiture', title: 'Editorial Outdoor Portraiture', image: '/Featured/Portriats/000044.jpg',      size: 'large',  desc: 'A daylight location session utilizing 35mm analog film, blending architectural backdrops with classic styling.' },
+  { id: 5,  category: 'Portraiture', title: 'Editorial Outdoor Portraiture',     image: '/Featured/Portriats/000040.jpg',     size: 'medium', desc: 'A daylight location session utilizing 35mm analog film, blending architectural backdrops with classic styling.' },
+  { id: 6,  category: 'Portraiture', title: 'Editorial Outdoor Portraiture',     image: '/Featured/Portriats/000044.jpg',     size: 'large',  desc: 'A daylight location session utilizing 35mm analog film, blending architectural backdrops with classic styling.' },
   // Portraiture — Ashley (B&W Night Film)
-  { id: 7,  category: 'Portraiture', title: 'Cinematic Low-Light Portraits', image: '/Featured/Portriats/F2650016.JPG',    size: 'large',  desc: 'A nighttime, direct-flash b&w street portrait session captured on 35mm film, emphasizing mood and cinematic narrative.' },
-  { id: 8,  category: 'Portraiture', title: 'Cinematic Low-Light Portraits', image: '/Featured/Portriats/F2650005.JPG',    size: 'medium', desc: 'A nighttime, direct-flash b&w street portrait session captured on 35mm film, emphasizing mood and cinematic narrative.' },
+  { id: 7,  category: 'Portraiture', title: 'Cinematic Low-Light Portraiture',   image: '/Featured/Portriats/F2650016.jpg',   size: 'large',  desc: 'A nighttime, direct-flash b&w street portrait session captured on 35mm film, emphasizing mood and cinematic narrative.' },
+  { id: 8,  category: 'Portraiture', title: 'Cinematic Low-Light Portraiture',   image: '/Featured/Portriats/F2650005.jpg',   size: 'medium', desc: 'A nighttime, direct-flash b&w street portrait session captured on 35mm film, emphasizing mood and cinematic narrative.' },
   // Editorial — Outdoor Location Shoot
   { id: 9,  category: 'Editorial',         title: 'Cinematic Portraiture',       image: '/Featured/Editorial/IMG_6307.JPG',  size: 'large',  desc: 'An outdoor fashion and portrait session captured on 35mm film, focusing on warm, natural tones and classic styling.' },
   { id: 10, category: 'Editorial',         title: 'Cinematic Portraiture',       image: '/Featured/Editorial/IMG_6308.JPG',  size: 'medium', desc: 'An outdoor fashion and portrait session captured on 35mm film, focusing on warm, natural tones and classic styling.' },
@@ -41,12 +41,12 @@ export const PORTFOLIO_ITEMS = [
   // Events & Concerts
   { id: 25, category: 'Events & Concerts', title: 'Live Performance',  image: '/Featured/Events/_MG_1407.jpg',   size: 'large',  desc: 'Atmospheric coverage of live performance — movement, energy, and the decisive moment.' },
   { id: 26, category: 'Events & Concerts', title: 'Live Performance',  image: '/Featured/Events/_MG_1468.jpg',   size: 'medium', desc: 'Atmospheric coverage of live performance — movement, energy, and the decisive moment.' },
-  { id: 27, category: 'Events & Concerts', title: 'Stage & Crowd',     image: '/Featured/Events/_MG_4826.JPG',   size: 'medium', desc: 'Wide environmental shots capturing the scale and atmosphere of the space.' },
-  { id: 28, category: 'Events & Concerts', title: 'Stage & Crowd',     image: '/Featured/Events/_MG_4840.JPG',   size: 'large',  desc: 'Wide environmental shots capturing the scale and atmosphere of the space.' },
-  { id: 29, category: 'Events & Concerts', title: 'Festival Frame',    image: '/Featured/Events/_MG_5294.JPG',   size: 'large',  desc: 'Decisive moments from a live festival set — unobtrusive and atmospheric.' },
-  { id: 30, category: 'Events & Concerts', title: 'Festival Frame',    image: '/Featured/Events/_MG_5328.JPG',   size: 'medium', desc: 'Decisive moments from a live festival set — unobtrusive and atmospheric.' },
-  { id: 31, category: 'Events & Concerts', title: 'Cultural Gathering', image: '/Featured/Events/_MG_5858.jpg',  size: 'medium', desc: 'Documentation of a cultural event — people, movement, and the real atmosphere of the space.' },
-  { id: 32, category: 'Events & Concerts', title: 'Cultural Gathering', image: '/Featured/Events/_MG_5896.jpg',  size: 'large',  desc: 'Documentation of a cultural event — people, movement, and the real atmosphere of the space.' },
+  { id: 27, category: 'Events & Concerts', title: 'Concert & Performance Coverage',  image: '/Featured/Events/_MG_4826.JPG',   size: 'medium', desc: 'Low-light, high-contrast performance photography capturing artist engagement and real-time audience connection.' },
+  { id: 28, category: 'Events & Concerts', title: 'Concert & Performance Coverage',  image: '/Featured/Events/_MG_4840.JPG',   size: 'large',  desc: 'Low-light, high-contrast performance photography capturing artist engagement and real-time audience connection.' },
+  { id: 29, category: 'Events & Concerts', title: 'Album Premiere Documentation',    image: '/Featured/Events/_MG_5294.JPG',   size: 'large',  desc: 'Documentary coverage for creative album launch, emphasizing intimate venue tone, artist presence, and crowd energy.' },
+  { id: 30, category: 'Events & Concerts', title: 'Album Premiere Documentation',    image: '/Featured/Events/_MG_5328.JPG',   size: 'medium', desc: 'Documentary coverage for creative album launch, emphasizing intimate venue tone, artist presence, and crowd energy.' },
+  { id: 31, category: 'Events & Concerts', title: 'Experiential Nightlife',          image: '/Featured/Events/_MG_5896.jpg',   size: 'medium', desc: 'High-impact nightlife and lifestyle branding photography documenting curated cultural events, movement, and authentic guest interactions.' },
+  { id: 32, category: 'Events & Concerts', title: 'Experiential Nightlife',          image: '/Featured/Events/_MG_5858.jpg',   size: 'large',  desc: 'High-impact nightlife and lifestyle branding photography documenting curated cultural events, movement, and authentic guest interactions.' },
 ];
 
 export const CATEGORIES = ['All', 'Portraiture', 'Editorial', 'Commercial', 'Events & Concerts'];
