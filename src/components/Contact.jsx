@@ -63,7 +63,6 @@ const Contact = () => {
                 </div>
                 <h3 className="font-serif text-3xl">Inquiry Received</h3>
                 <p className="text-luxury-cream/50 max-w-xs">Thank you for reaching out. I will review your project details and get back to you within 48 hours.</p>
-                {/* If you want a "Send another" button, you can reset by refreshing or use Formspree reset; not included here per default useForm behaviors */}
               </div>
             ) : (
               <form className="space-y-8" onSubmit={handleSubmit}>

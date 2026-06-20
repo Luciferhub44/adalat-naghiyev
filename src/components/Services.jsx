@@ -6,52 +6,73 @@ import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
   const navigate = useNavigate();
+
   return (
-    <section id="services" className="py-32 px-6">
+    <section id="services" className="py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24 max-w-3xl mx-auto">
-          <p className="text-luxury-gold uppercase tracking-[0.3em] text-[10px] mb-4 font-bold">Services</p>
-          <h2 className="font-serif text-5xl md:text-7xl mb-12 italic">Approach and Services</h2>
-          <p className="text-luxury-cream/60 text-base md:text-lg leading-relaxed font-light">
-            Deliberate and cinematic photography across digital and analog formats. My work focuses on atmosphere, 
-            identity, and strong editorial direction, while keeping every project clear, professional, and purposeful.
+
+        {/* Header */}
+        <div className="flex items-end justify-between border-b border-white/10 pb-10 mb-0">
+          <div>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="h-px w-8 bg-luxury-gold" />
+              <p className="text-[9px] uppercase tracking-[0.4em] text-luxury-gold">Services</p>
+            </div>
+            <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl">Approach and Services</h2>
+          </div>
+          <p className="text-luxury-cream/25 text-xs hidden lg:block max-w-xs text-right leading-relaxed">
+            Deliberate and cinematic photography across digital and analog formats.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Service rows */}
+        <div className="divide-y divide-white/5">
           {SERVICES.map((service, i) => (
             <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              key={service.id}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative p-10 border border-luxury-cream/10 bg-luxury-black/40 hover:bg-white/5 transition-all duration-700 flex flex-col min-h-[400px]"
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+              className="group grid grid-cols-1 md:grid-cols-[80px_1fr_auto] gap-6 md:gap-12 py-10 md:py-12 hover:bg-white/[0.02] transition-colors -mx-6 px-6 cursor-pointer"
+              onClick={() => navigate(`/services/${service.id}`)}
             >
-              <div className="text-luxury-gold/30 group-hover:text-luxury-gold transition-colors duration-500 mb-10 transform group-hover:scale-110 group-hover:-translate-y-2 origin-left transition-transform duration-700">
-                {service.icon}
+              {/* Index number */}
+              <div className="shrink-0">
+                <span className="font-serif text-4xl md:text-5xl text-luxury-gold/20 group-hover:text-luxury-gold/50 transition-colors duration-500 leading-none">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
               </div>
-              <h3 className="font-serif text-2xl mb-6 leading-tight group-hover:text-luxury-gold transition-colors duration-500">{service.title}</h3>
-              <p className="text-luxury-cream/40 text-xs leading-relaxed mb-12 flex-grow font-light tracking-wide group-hover:text-luxury-cream/70 transition-colors duration-500">
-                {service.homeDescription}
-              </p>
-              <div className="mt-auto">
-                <button 
-                  onClick={() => navigate(`/services/${service.id}`)}
-                  className="group/btn flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] font-bold text-luxury-gold hover:text-luxury-cream transition-all duration-300"
-                >
-                  <span className="relative overflow-hidden">
-                    <span className="inline-block transition-transform duration-300 group-hover/btn:-translate-y-full">{service.cta}</span>
-                    <span className="absolute top-0 left-0 inline-block translate-y-full transition-transform duration-300 group-hover/btn:translate-y-0 text-luxury-cream">{service.cta}</span>
-                  </span>
-                  <div className="w-8 h-8 border border-luxury-cream/10 rounded-full flex items-center justify-center group-hover/btn:border-luxury-gold group-hover/btn:bg-luxury-gold group-hover/btn:text-luxury-black transition-all duration-500">
-                    <ArrowRight className="w-3 h-3" />
-                  </div>
-                </button>
+
+              {/* Content */}
+              <div className="space-y-3">
+                <h3 className="font-serif text-2xl md:text-3xl group-hover:text-luxury-gold transition-colors duration-400">
+                  {service.title}
+                </h3>
+                <p className="text-luxury-cream/40 text-sm leading-relaxed max-w-2xl group-hover:text-luxury-cream/60 transition-colors duration-400">
+                  {service.homeDescription}
+                </p>
+                <p className="text-[9px] uppercase tracking-[0.3em] text-luxury-gold/50 group-hover:text-luxury-gold transition-colors duration-400">
+                  {service.tagline}
+                </p>
+              </div>
+
+              {/* Arrow CTA */}
+              <div className="flex items-center shrink-0">
+                <div className="w-10 h-10 border border-luxury-cream/10 group-hover:border-luxury-gold group-hover:bg-luxury-gold flex items-center justify-center transition-all duration-400">
+                  <ArrowRight className="w-4 h-4 text-luxury-cream/30 group-hover:text-luxury-black transition-colors duration-400" />
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Footer label */}
+        <div className="border-t border-white/10 pt-8 mt-0 flex justify-between items-center">
+          <p className="text-[9px] uppercase tracking-[0.3em] text-luxury-cream/20">Based in Poznań — available across Europe</p>
+          <p className="text-[9px] uppercase tracking-[0.3em] text-luxury-cream/20">{SERVICES.length} disciplines</p>
+        </div>
+
       </div>
     </section>
   );
