@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useParams, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Exhibition from './components/Exhibition';
 import FullServices from './components/FullServices';
 import Navbar from './components/Navbar';
 import { PORTFOLIO_ITEMS } from './data/constants';
-
-const FullServicesWrapper = () => {
-  const { id } = useParams();
-  return <FullServices initialServiceId={id} />;
-};
 
 export default function App() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -61,7 +56,7 @@ export default function App() {
           } 
         />
         <Route path="/um" element={<Exhibition />} />
-        <Route path="/services/:id" element={<FullServicesWrapper />} />
+        <Route path="/services/:id" element={<FullServices />} />
       </Routes>
     </div>
   );

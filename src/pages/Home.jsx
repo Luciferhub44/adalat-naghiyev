@@ -19,7 +19,7 @@ export default function Home({
   setTestimonialIndex 
 }) {
   return (
-    <div className="bg-luxury-black selection:bg-luxury-gold/30">
+    <>
       <Hero />
       <Portfolio setSelectedItem={setSelectedItem} />
       <About />
@@ -27,18 +27,16 @@ export default function Home({
       <Testimonials testimonialIndex={testimonialIndex} setTestimonialIndex={setTestimonialIndex} />
       <Contact />
       <Footer />
-
-      {/* Lightbox Portal */}
       <AnimatePresence>
         {selectedItem && (
-          <Lightbox 
-            item={selectedItem} 
+          <Lightbox
+            item={selectedItem}
             onClose={() => setSelectedItem(null)}
             onNext={handleNextItem}
             onPrev={handlePrevItem}
           />
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }

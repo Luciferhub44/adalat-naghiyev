@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ArrowRight, Instagram, Mail } from 'lucide-react';
 import { SERVICES } from '../data/constants';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const FullServices = ({ initialServiceId }) => {
+const FullServices = () => {
   const navigate = useNavigate();
+  const { id: initialServiceId } = useParams();
   const [activeId, setActiveId] = useState(initialServiceId || SERVICES[0].id);
 
   useEffect(() => {
     if (initialServiceId) {
-      const el = document.getElementById(initialServiceId);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById(initialServiceId)?.scrollIntoView({ behavior: 'smooth' });
     } else {
       window.scrollTo(0, 0);
     }
@@ -33,11 +33,6 @@ const FullServices = ({ initialServiceId }) => {
     });
     return () => observer.disconnect();
   }, []);
-
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="bg-luxury-black min-h-screen text-luxury-cream font-sans">
@@ -92,7 +87,7 @@ const FullServices = ({ initialServiceId }) => {
                 {SERVICES.map((s, i) => (
                   <button
                     key={s.id}
-                    onClick={() => scrollTo(s.id)}
+                    onClick={() => document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth' })}
                     className={`w-full text-left flex items-center gap-3 py-2.5 text-xs transition-colors duration-300 cursor-pointer group ${
                       activeId === s.id ? 'text-luxury-gold' : 'text-luxury-cream/30 hover:text-luxury-cream/70'
                     }`}
@@ -152,10 +147,7 @@ const FullServices = ({ initialServiceId }) => {
                       {service.title}
                     </h2>
                   </div>
-                  <p className="text-luxury-gold text-[9px] uppercase tracking-[0.35em] ml-[calc(theme(fontSize.7xl)+1.25rem)] -mt-1 hidden md:block">
-                    {service.tagline}
-                  </p>
-                  <p className="text-luxury-gold text-[9px] uppercase tracking-[0.35em] mt-2 md:hidden">
+                  <p className="text-luxury-gold text-[9px] uppercase tracking-[0.35em] mt-2 md:ml-[calc(theme(fontSize.7xl)+1.25rem)] md:-mt-1">
                     {service.tagline}
                   </p>
                 </div>

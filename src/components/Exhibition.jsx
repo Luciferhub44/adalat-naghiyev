@@ -399,7 +399,7 @@ const Exhibition = () => {
             <img
               src="/Mosaic/Mosaic_White.png"
               alt="Urban Mosaic"
-              className="h-16 md:h-24 w-auto mb-8 md:mb-12"
+              className="h-20 md:h-28 w-auto mb-8 md:mb-12"
             />
 
             {/* Big heading */}
