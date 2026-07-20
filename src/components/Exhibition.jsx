@@ -33,7 +33,7 @@ const mosaicEvents = [
     date: '23.07',
     time: '17:00',
     title: 'Urban Mosaic: Gallery & Photo Walk + Darkroom Experience',
-    pl: 'Kuratowany spacer fotograficzny oraz przegląd galerii sztuki współczesnej z Agatą Rodriguez, zwieńczony pokazem tradycyjnego procesu wywoływania odbitek w ciemni Darii Bielinkov.',
+    pl: 'Kuratowany spacer fotograficzny oraz przegląd galerii sztuki współczesnej z Agatą Rodriguez, zwieńczony pokazem tradycyjnego procesu wywoływania odbitek w ciemni Daria Bielienkov.',
     en: "A curated contemporary art gallery tour and photo walk led by Agata Rodriguez, concluding with a live, traditional analog darkroom print demonstration at Daria Bielienkov's studio.",
     details: 'Zapisy (limit miejsc) / Registration required (limited capacity)',
   },
