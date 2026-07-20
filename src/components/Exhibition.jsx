@@ -34,7 +34,7 @@ const mosaicEvents = [
     time: '17:00',
     title: 'Urban Mosaic: Gallery & Photo Walk + Darkroom Experience',
     pl: 'Kuratowany spacer fotograficzny oraz przegląd galerii sztuki współczesnej z Agatą Rodriguez, zwieńczony pokazem tradycyjnego procesu wywoływania odbitek w ciemni Darii Bielinkov.',
-    en: "A curated contemporary art gallery tour and photo walk led by Agata Rodriguez, concluding with a live, traditional analog darkroom print demonstration at Daria Bielinkov's studio.",
+    en: "A curated contemporary art gallery tour and photo walk led by Agata Rodriguez, concluding with a live, traditional analog darkroom print demonstration at Daria Bielienkov's studio.",
     details: 'Zapisy (limit miejsc) / Registration required (limited capacity)',
   },
   {
@@ -97,7 +97,7 @@ function EventSignupForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [state, handleSubmit] = useForm('xjgdozao');
+  const [state, handleSubmit] = useForm('mykrwpql');
 
   const selectedEventDescriptions = selectedEvents
     .map(i => `[${mosaicEvents[i].date} ${mosaicEvents[i].time}] ${mosaicEvents[i].title}`)
